@@ -27,5 +27,8 @@
   "homepage": "https://github.com/mosef/minionmanager#readme",
   "dependencies": {
     "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
