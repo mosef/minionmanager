@@ -1,0 +1,31 @@
+{
+  "name": "minionman",
+  "version": "1.0.0",
+  "description": "Application for DM's to manage campaigns",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mosef/minionmanager.git"
+  },
+  "keywords": [
+    "D&D",
+    "Pathfinder",
+    "Boardgames",
+    "Dungeon",
+    "Master",
+    "Dragons",
+    "manager"
+  ],
+  "author": "Mosef Asad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mosef/minionmanager/issues"
+  },
+  "homepage": "https://github.com/mosef/minionmanager#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
