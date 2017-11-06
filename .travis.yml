@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: i+7qbqvPYkHhvnz4MU6QDTLjY2Cw7ZAlDgSsjxseJhoEVmEq++FP+IiKTwlLa9LaVbyn7AKzyvUTOYMY4ZmUl42AApicRc6TinK+jogpsjZ3b3DwnrUPtBoTzzkr0c1WmToQ/JyLoR+huvs/LFbBghAta4E4aW90N0dwjZoDv8JAr3Xrq9NjGXULoWsIoWnlPbnTx/AAd40aXtIckMR6Xu6YEmc9DVz/Tj6+UTnQKnb0gR3x9dCDtDWhZrLSrrkg5T3yUdAjqNVdw/qYqUVgy3Q36tyENWF77A3QwGo6l3AJWRJdAQq+GMPOe9lLd36FqHnimqW/CKc8H3/5QR1bQf/grn+zuEWCFSBV/41viJGlZnkxBajWlhxzC1bSf87Y9sBK91jWzhj0VQ76FfhBLZbziJLbDsB8td+ww/f5nzVipZVuj7WlCBGKUyDGbGsCMX+dHbHGbwNZDLBHW7GDyKWQ4PXgVuRR138cVlj85LXB7d8nJBB8DUZe0L+S/UO433FTAen2FRUtYs4ICFXJqGZf0jxhedrU2twV9FuYgc8IAy5xXi3QDcCPiJKjeZVXJPjibReWmGRYMWYtfZ+l36XZMVF0+XXxjbo7M6nPA4q5Vld77jMlQmPpV1/i1dszH/KtR/wx2rm3wLGvt6gI4/Lw0ETsc/IFJrgBFA0NZZY=
+  app: sheltered-coast-97878
+  on:
+    repo: mosef/minionmanager
