@@ -11,13 +11,13 @@ campaigns: {
             currentLoot: String,
             session: Number,
             expGained: Number,
-            currentResources: {"health": Number, "remainingCasts": Number, "buffs": String}}
+            currentResources: {health: Number, remainingCasts: Number, buffs: String}}
             }
   
-});
+}});
 
 
-saveStateSchema.virtual('authorName').get(function() {
+saveStateSchema.virtual('campaignList').get(function() {
   return `${this.campaign.players}`;
 });
 
