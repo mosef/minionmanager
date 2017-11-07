@@ -15,7 +15,7 @@ app.get('/load-save', (req, res) => {
     playerChar
       .find()
       .then(players => {
-        res.json(player.map(save => save.apiRepr()));
+        res.json(players.map(player => player.apiRepr()));
       })
       .catch(err => {
         console.error(err);
