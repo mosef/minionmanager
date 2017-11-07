@@ -11,14 +11,16 @@ player: {
     }
 });
 const campaignSchema = mongoose.Schema({
+campaign: {
     campaignName: String,
     players: [{playerSchema}]
+    }
 });
 
 const playerChar = mongoose.model('campaignPlayer', campaignSchema);
 
-campaignSchema.virtual('campaignTitle').get(function() {
-  return `${this.campaignName}`;
+campaignSchema.virtual('campaignList').get(function() {
+  return `${this.campaign}`;
 });
 
 campaignSchema.virtual('playerList').get(function() {
@@ -28,7 +30,7 @@ campaignSchema.virtual('playerList').get(function() {
 campaignSchema.methods.apiRepr = function() {
   return {
     id: this._id,
-    campaignName: this.campaignTitle,
+    campaignName: this.campaignList,
     players: this.playerList,
   };
 }
