@@ -14,7 +14,7 @@ mongoose.Promise = global.Promise;
 app.get('/load-save', (req, res) => {
     playerChar
       .find()
-      .then(player => {
+      .then(players => {
         res.json(player.map(save => save.apiRepr()));
       })
       .catch(err => {
