@@ -24,8 +24,21 @@ app.get('/load', (req, res) => {
   });
 
 app.post('/save', (req, res) => {
-
-})
+    const requiredFields = ['campaignName', 'players'];
+    for (let i=0; i<requiredFields.length; i++) {
+        const field = requiredFields[i];
+        if (!(field in req.body)) {
+            const message = `Missing \`${field}\` in request body`
+            console.error(message);
+            return res.status(400).send(message);
+        }
+    }
+    playerChar
+    .create({
+        campaignName: req.body.campaignName,
+        players: req.body.players
+    });
+});
 
 
 
