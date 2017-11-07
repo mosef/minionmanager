@@ -1,34 +1,32 @@
 const mongoose = require('mongoose');
 
-const saveStateSchema = mongoose.Schema({
-campaigns: {
-    campaign: String, 
-    players: {
-        Object: {
-            email: String,
-            gameName: String,
-            statSheet: String,
-            currentLoot: String,
-            session: Number,
-            expGained: Number,
-            currentResources: {health: Number, remainingCasts: Number, buffs: String}}
-            }
-  
-}});
-
-
-saveStateSchema.virtual('campaignList').get(function() {
-  return `${this.campaign.players}`;
+const playerSchema = mongoose.Schema({
+    charName: String,
+    statSheet: String,
+    email: String,
+    session: Number,
+    expGained: Number,
+    currentLoot: String
+});
+const campaignSchema = mongoose.Schema({
+    campaignName: String,
+    players: [{playerSchema}]
 });
 
-saveStateSchema.methods.apiRepr = function() {
+const playerChar = mongoose.model('campaignPlayer', campaignSchema);
+
+campaignSchema.virtual('campaignList').get(function() {
+  return `${this.campaign}`;
+});
+
+campaignSchema.methods.apiRepr = function() {
   return {
     id: this._id,
-    campaigns: this.campaigns,
+    campaignName: this.campaignList,
     players: this.players,
   };
 }
 
-const SaveState = mongoose.model('SaveState', saveStateSchema);
 
-module.exports = {SaveState};
+
+module.exports = {playerChar};

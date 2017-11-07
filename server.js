@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose')
 const {PORT, DATABASE_URL} = require('./config');
-const {SaveState} = require('./models');
+const {playerChar} = require('./models');
 
 app.use(express.static('public'));
 app.use(morgan('common'));
@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 
 app.get('/load-save', (req, res) => {
-    SaveSate
+    playerChar
       .find()
-      .then(saves => {
-        res.json(saves.map(save => save.apiRepr()));
+      .then(player => {
+        res.json(player.map(save => save.apiRepr()));
       })
       .catch(err => {
         console.error(err);
