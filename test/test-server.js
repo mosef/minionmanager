@@ -57,9 +57,11 @@ describe('Campaign Manager API resource', function() {
 
 describe('GET endpoint', function() {
     it('should list campaign details on GET', function() {
+        let res;
         return chai.request(app)
             .get('/load')
-            .then(function(res) {
+            .then(_res => {
+            res = _res;
             res.should.have.status(200);
             res.should.be.json;
             })
