@@ -59,12 +59,12 @@ describe('GET endpoint', function() {
     it('should list campaign details on GET', function() {
         let res;
         return chai.request(app)
-            .get('/load')
-            .then(_res => {
+        .get('/load')
+        .then(_res => {
             res = _res;
             res.should.have.status(200);
             res.should.be.json;
-            })
         })
+    })
        
 });
