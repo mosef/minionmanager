@@ -22,30 +22,6 @@ function seedCampaignData() {
                         session: 2,
                         expGained: 300,
                         currentLoot: faker.commerce.product()
-                      },
-                      {
-                        charName: faker.name.firstName(),
-                        statSheet: faker.internet.url(),
-                        email: faker.internet.email(),
-                        session: 2,
-                        expGained: 300,
-                        currentLoot: faker.commerce.product()
-                      },
-                      {
-                        charName: faker.name.firstName(),
-                        statSheet: faker.internet.url(),
-                        email: faker.internet.email(),
-                        session: 2,
-                        expGained: 300,
-                        currentLoot: faker.commerce.product()
-                      },
-                      {
-                        charName: faker.name.firstName(),
-                        statSheet: faker.internet.url(),
-                        email: faker.internet.email(),
-                        session: 2,
-                        expGained: 300,
-                        currentLoot: faker.commerce.product()
                       }
                 ]
             }
