@@ -11,7 +11,7 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 
-app.get('/load-save', (req, res) => {
+app.get('/load', (req, res) => {
     playerChar
       .find()
       .then(players => {
@@ -23,6 +23,9 @@ app.get('/load-save', (req, res) => {
       });
   });
 
+app.post('/save', (req, res) => {
+
+})
 
 
 

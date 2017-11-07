@@ -16,7 +16,7 @@ describe('Campaign Management testing', function() {
       
     it('should list campaign details on GET', function() {
     return chai.request(app)
-        .get('/load-save')
+        .get('/load')
         .then(function(res) {
         res.should.have.status(200);
         res.should.be.json;
