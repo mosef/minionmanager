@@ -5,7 +5,7 @@ const { TEST_DATABASE_URL } = require('../config');
 const should = chai.should();
 chai.use(chaiHttp);
 
-describe('Campaign Management', function() {
+describe('Campaign Management testing', function() {
 
     before(function() {
         return runServer(TEST_DATABASE_URL);
@@ -19,6 +19,7 @@ describe('Campaign Management', function() {
         .get('/load-save')
         .then(function(res) {
         res.should.have.status(200);
+        res.should.be.json;
         })
     })
 })

@@ -1,72 +1,37 @@
 {
-  "campaigns": {
-    "campaign": "new campaign",
-    "players": {
-      "Steve": {
-        "email": "steve@something.com",
-        "gameName": "Bolvar",
-        "statSheet": "somelinkdropbox.com",
-        "currentLoot": "war axe, spike shield, health potion",
-        "session": 3,
-        "expGained": 400,
-        "currentResources": {
-          "health": 10,
-          "remainingCasts": 2,
-          "buffs": "divine shield"
-        }
-      },
-      "Jill": {
-        "email": "jill@something.com",
-        "gameName": "Aleria",
-        "statSheet": "somelinkdropbox.com",
-        "currentLoot": "runic threads, spellbook, dagger",
-        "session": 3,
-        "expGained": 400,
-        "currentResources": {
-          "health": 6,
-          "remainingCasts": 5,
-          "buffs": "mana shield"
-        }
-      },
-      "Aron": {
-        "email": "aron@something.com",
-        "gameName": "Bruxa",
-        "statSheet": "somelinkdropbox.com",
-        "currentLoot": "soul stone, thief tools, poison darts",
-        "session": 3,
-        "expGained": 400,
-        "currentResources": {
-          "health": 8,
-          "remainingCasts": 3,
-          "buffs": "none"
-        }
-      },
-      "Tara": {
-        "email": "tara@something.com",
-        "gameName": "Aegwin",
-        "statSheet": "somelinkdropbox.com",
-        "currentLoot": "shadow blade, fire paper, amulet of loss",
-        "session": 3,
-        "expGained": 400,
-        "currentResources": {
-          "health": 5,
-          "remainingCasts": 4,
-          "buffs": "stealthed"
-        }
-      },
-      "Brian": {
-        "email": "brian@something.com",
-        "gameName": "Terelious",
-        "statSheet": "somelinkdropbox.com",
-        "currentLoot": "warhammer, plate armor, battle shield",
-        "session": 3,
-        "expGained": 400,
-        "currentResources": {
-          "health": 12,
-          "remainingCasts": 1,
-          "buffs": "Light Shield"
-        }
-      }
+  "campaignName": "NewbiesForGroup",
+  "players": [
+    {
+      "charName": "Bolfas",
+      "statSheet": "somelink.com",
+      "email": "random@email.com",
+      "session": 4,
+      "expGained": 500,
+      "currentLoot": "War Axe, Potion of Might +2"
+    },
+    {
+      "charName": "Sulphria",
+      "statSheet": "somelink.com",
+      "email": "random@email.com",
+      "session": 4,
+      "expGained": 500,
+      "currentLoot": "Wand, Potion of Healing +2, Shadow Orb"
+    },
+    {
+      "charName": "Strix",
+      "statSheet": "somelink.com",
+      "email": "random@email.com",
+      "session": 4,
+      "expGained": 500,
+      "currentLoot": "Poison bomb, Night Dagger +5, Teleportation Orb"
+    },
+    {
+      "charName": "Aerllia",
+      "statSheet": "somelink.com",
+      "email": "random@email.com",
+      "session": 4,
+      "expGained": 500,
+      "currentLoot": "Book of Healing +2, Amulet of Loss, 1200 gold"
     }
-  }
+  ]
 }
