@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 function seedCampaignData() {
     console.info('seeding campaign data');
     const seedData = [];
-    for (let i=1; i<=1; i++) {
+    for (let i=1; i<=4; i++) {
         seedData.push({
             campaign: {
                 campaignName: faker.company.companyName(),
@@ -64,7 +64,11 @@ describe('GET endpoint', function() {
             res = _res;
             res.should.have.status(200);
             res.should.be.json;
+            res.body.should.have.length.of.at.least(1);
+            return playerChar.count();
+        })
+        .then(count => {
+            res.body.should.have.lengthOf(count);
         })
     })
-       
 });

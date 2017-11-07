@@ -15,7 +15,7 @@ app.get('/load', (req, res) => {
     playerChar
       .find()
       .then(players => {
-        res.json(players.map(players => players.apiRepr()));
+        res.json(players);
       })
       .catch(err => {
         console.error(err);

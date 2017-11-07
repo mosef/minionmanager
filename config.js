@@ -3,5 +3,5 @@ global.DATABASE_URL ||
 'mongodb://localhost/minion-app';
 exports.TEST_DATABASE_URL = (
  process.env.TEST_DATABASE_URL ||
- 'mongodb://localhost/minion-app');
+ 'mongodb://localhost/test-minion-app');
 exports.PORT = process.env.PORT || 8080;
