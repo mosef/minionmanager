@@ -15,18 +15,20 @@ const campaignSchema = mongoose.Schema({
 
 const playerChar = mongoose.model('campaignPlayer', campaignSchema);
 
-campaignSchema.virtual('campaignList').get(function() {
-  return `${this.campaign}`;
+campaignSchema.virtual('campaignTitle').get(function() {
+  return `${this.campaignName}`;
+});
+
+campaignSchema.virtual('playerList').get(function() {
+    return `${this.players}`;
 });
 
 campaignSchema.methods.apiRepr = function() {
   return {
     id: this._id,
-    campaignName: this.campaignList,
-    players: this.players,
+    campaignName: this.campaignTitle,
+    players: this.playerList,
   };
 }
-
-
 
 module.exports = {playerChar};
