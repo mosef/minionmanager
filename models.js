@@ -1,12 +1,14 @@
 const mongoose = require('mongoose');
 
 const playerSchema = mongoose.Schema({
+player: {
     charName: String,
     statSheet: String,
     email: String,
     session: Number,
     expGained: Number,
     currentLoot: String
+    }
 });
 const campaignSchema = mongoose.Schema({
     campaignName: String,
