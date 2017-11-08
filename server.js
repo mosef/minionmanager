@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose')
 const {PORT, DATABASE_URL} = require('./config');
-const {playerChar} = require('./models');
+const {Campaign} = require('./models');
 
 app.use(express.static('public'));
 app.use(morgan('common'));
@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 mongoose.Promise = global.Promise;
 
 app.get('/load', (req, res) => {
-    playerChar
+    Campaign
       .find()
-      .then(players => {
-        res.json(players);
+      .then(campaigns => {
+        res.json(campaigns);
       })
       .catch(err => {
         console.error(err);
@@ -23,22 +23,7 @@ app.get('/load', (req, res) => {
       });
   });
 
-app.post('/save', (req, res) => {
-    const requiredFields = ['campaignName', 'players'];
-    for (let i=0; i<requiredFields.length; i++) {
-        const field = requiredFields[i];
-        if (!(field in req.body)) {
-            const message = `Missing \`${field}\` in request body`
-            console.error(message);
-            return res.status(400).send(message);
-        }
-    }
-    playerChar
-    .create({
-        campaignName: req.body.campaignName,
-        players: req.body.players
-    });
-});
+app.post('/save', (req, res) => {});
 
 
 
