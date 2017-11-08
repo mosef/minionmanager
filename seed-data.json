@@ -1,39 +1,38 @@
-{
-    "campaign": {
-        "title": "newbie group",
-        "players": [
-            {
-                "playerName": "Bruxa",
-                "statSheet": "somelink.com",
-                "email": "steve@email1.com",
-                "session": 4,
-                "expGained": 500,
-                "currentLoot": "spear, axe, potion"
-            },
-            {
-                "playerName": "Aria",
-                "statSheet": "somelink.com",
-                "email": "jenny@email1.com",
-                "session": 4,
-                "expGained": 500,
-                "currentLoot": "helm, belt, book"
-            },
-            {
-                "playerName": "Galri",
-                "statSheet": "somelink.com",
-                "email": "sarah@email1.com",
-                "session": 4,
-                "expGained": 500,
-                "currentLoot": "cloth armor, wand, gems"
-            },
-            {
-                "playerName": "Ridian",
-                "statSheet": "somelink.com",
-                "email": "mark@email1.com",
-                "session": 4,
-                "expGained": 500,
-                "currentLoot": "400 gp, sword"
-            }
-        ]
-    }
+{ 
+    "title": "newbie group",
+    "players": [
+        {
+            "playerName": "Bruxa",
+            "statSheet": "somelink.com",
+            "email": "steve@email1.com",
+            "session": 4,
+            "expGained": 500,
+            "currentLoot": "spear, axe, potion"
+        },
+        {
+            "playerName": "Aria",
+            "statSheet": "somelink.com",
+            "email": "jenny@email1.com",
+            "session": 4,
+            "expGained": 500,
+            "currentLoot": "helm, belt, book"
+        },
+        {
+            "playerName": "Galri",
+            "statSheet": "somelink.com",
+            "email": "sarah@email1.com",
+            "session": 4,
+            "expGained": 500,
+            "currentLoot": "cloth armor, wand, gems"
+        },
+        {
+            "playerName": "Ridian",
+            "statSheet": "somelink.com",
+            "email": "mark@email1.com",
+            "session": 4,
+            "expGained": 500,
+            "currentLoot": "400 gp, sword"
+        }
+    ]
+    
 }

@@ -2,7 +2,8 @@ const chai = require('chai');
 const chaiHttp = require('chai-http');
 const faker = require('faker');
 const mongoose = require('mongoose');
-const {Player, Campaign} = require('../models');
+const {Player} = require('../models/player');
+const {Campaign} = require('../models/campaign')
 const {app, runServer, closeServer} = require('../server');
 const { TEST_DATABASE_URL } = require('../config');
 const should = chai.should();
@@ -69,7 +70,7 @@ describe('Campaign Manager API resource', function() {
             })
 		  })
 		  it('should check for correct fields', function() {
-			  
+
 		  })
     });
 

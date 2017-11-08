@@ -1,31 +1,17 @@
 const express = require('express');
 const app = express();
+const routes = require('./routes/api')
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose')
+mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
 const {Campaign} = require('./models');
 
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
-mongoose.Promise = global.Promise;
-
-app.get('/load', (req, res) => {
-    Campaign
-      .find()
-      .then(campaigns => {
-        res.json(campaigns);
-      })
-      .catch(err => {
-        console.error(err);
-        res.status(500).json({error: 'something went terribly wrong'});
-      });
-  });
-
-app.post('/save', (req, res) => {});
-
-
+app.use('/load-campaign', routes);
 
 let server;
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {
