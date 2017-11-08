@@ -67,7 +67,10 @@ describe('Campaign Manager API resource', function() {
             .then(count => {
                 res.body.should.have.lengthOf(count);
             })
-        })
+		  })
+		  it('should check for correct fields', function() {
+			  
+		  })
     });
 
 })
