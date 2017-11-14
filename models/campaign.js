@@ -4,7 +4,6 @@ const {playerSchema} = require('./player');
 
 const campaignSchema = mongoose.Schema({
   title: {type: String},
-  //need to link player schema to the value for the plaerys key
 	players: [{ 
     _id: false,
     playerName: {type: String},
