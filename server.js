@@ -6,12 +6,12 @@ const morgan = require('morgan');
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
-const {Campaign} = require('./models');
+const {Campaign} = require('./models/campaign');
 
 app.use(express.static('public'));
 app.use(morgan('common'));
 app.use(bodyParser.json());
-app.use('/load-campaign', routes);
+app.use('/api', routes);
 
 let server;
 function runServer(databaseUrl=DATABASE_URL, port=PORT) {

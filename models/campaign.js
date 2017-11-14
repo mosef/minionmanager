@@ -1,24 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const playerSchema = require('mongoose').model('Player', playerSchema);
+const {playerSchema} = require('./player');
+
 const campaignSchema = mongoose.Schema({
-	_id: Schema.Types.ObjectId,
-	title: {type: String},
-	players: [playerSchema]
+  title: {type: String},
+  //need to link player schema to the value for the plaerys key
+	players: [{ 
+    _id: false,
+    playerName: {type: String},
+    statSheet: {type: String},
+    email: {type: String},
+    session: {type: Number},
+    expGained: {type: Number},
+    currentLoot: {type: String}
+  }]
 });
 
 const Campaign = mongoose.model('campaign', campaignSchema);
-
-campaignSchema.virtual('campaignPlayers').get(function() {
-  return `${this.players}`;
-});
-
-campaignSchema.methods.apiRepr = function() {
-  return {
-    id: this._id,
-    title: this.title,
-    players: this.campaignPlayers,
-  };
-}
 
 module.exports = {Campaign}
