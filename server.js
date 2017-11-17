@@ -9,7 +9,7 @@ mongoose.Promise = global.Promise;
 const {PORT, DATABASE_URL} = require('./config');
 const {Campaign} = require('./models/campaign');
 const routes = require('./routes/api');
-const authRouter = require('./routes/auth');
+const authRouter = require('./routes/authenticate');
 const usersRouter = require('./routes/users');
 const {basicStrategy, jwtStrategy} = require('./routes/strategies');
 
@@ -18,7 +18,7 @@ app.use(morgan('common'));
 app.use(bodyParser.json());
 app.use('/api', routes);
 app.use('/users', usersRouter);
-app.use('/auth', authRouter);
+app.use('/authenticate', authRouter);
 app.use(passport.initialize());
 passport.use(basicStrategy);
 passport.use(jwtStrategy);
