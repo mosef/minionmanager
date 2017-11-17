@@ -1,3 +1,4 @@
+const faker = require("faker");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const jwt = require("jsonwebtoken");
@@ -15,19 +16,17 @@ const { User } = require("../models/user-model");
 const { JWT_SECRET } = require("../config");
 
 describe("Campaign Manager Login Auth Tests", function() {
-  const username = "exampleUser";
-  const password = "examplePass";
-  const firstName = "Example";
-  const lastName = "User";
+  const username = faker.name.title();
+  const password = faker.internet.password();
+  const firstName = faker.name.firstName();
+  const lastName = faker.name.lastName();
 
   before(function() {
     return runServer();
   });
-
   after(function() {
     return closeServer();
   });
-
   beforeEach(function() {
     return User.hashPassword(password).then(password =>
       User.create({
@@ -38,7 +37,6 @@ describe("Campaign Manager Login Auth Tests", function() {
       })
     );
   });
-
   afterEach(function() {
     return User.remove({});
   });
@@ -53,7 +51,6 @@ describe("Campaign Manager Login Auth Tests", function() {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
-
           const res = err.response;
           expect(res).to.have.status(401);
         });
@@ -68,7 +65,6 @@ describe("Campaign Manager Login Auth Tests", function() {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
-
           const res = err.response;
           expect(res).to.have.status(401);
         });
@@ -83,7 +79,6 @@ describe("Campaign Manager Login Auth Tests", function() {
           if (err instanceof chai.AssertionError) {
             throw err;
           }
-
           const res = err.response;
           expect(res).to.have.status(401);
         });
