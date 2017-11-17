@@ -5,6 +5,7 @@ const {User} = require('../models/user-model');
 const usersRouter = express.Router();
 const jsonParser = bodyParser.json();
 const bcrypt = require('bcryptjs');
+
 usersRouter.get('/protected', passport.authenticate('jwt', {session: false}), (req, res) => {
      return res.json({
          data: 'Campaign Data'
