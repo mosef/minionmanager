@@ -13,11 +13,42 @@
         </header>
         
         <main role="main">
+            <section>
+                <h2>Register an Account</h2>
+                <form method="post" class="js-register-form">
+                    <label for="POST-register">Username</label>
+                        <input id="user-name" type="text" name="registration">
+                    <label for"POST-register">Password</label>
+                        <input id="user-pass" type="password" name="registration">
+                    <label for"POST-register">First Name</label>
+                        <input id="first-name" type="text" name="registration">
+                    <label for"POST-register">Last Name</label>
+                        <input id="last-name" type="text" name="registration">
+                    <input type="submit" value="Register">
+                </form>
+            </section>
             <section role="region">
                 <h2>Save a new Campaign</h2>
-                <form>
-                    <label></label>
-                    <button>Save Campaign</button>
+                <form action="" method="post">
+                    <label for="POST-title">Title:</label>
+                    <input id="POST-title" type="text" name="saveCamp">
+                    <button>add player</button>
+                    <fieldset>
+                        <legend>Players</legend>
+                        <label for="POST-player-name">Player Name</label>
+                            <input type="text" name="saveCamp">
+                        <label for="POST-title">Stat Sheet</label>
+                            <input type="text" name="saveCamp">
+                        <label for="POST-email">Email</label>
+                            <input type="text" name="saveCamp">
+                        <label for="POST-session">Session</label>
+                            <input type="text" name="saveCamp">
+                        <label for="POST-exp">Exp Gained</label>
+                            <input type="text" name="saveCamp">
+                        <label for="POST-loot">Current Loot</label>
+                            <input type="text" name="saveCamp">
+                    </fieldset>
+                    <input type="submit" value="Save">
                 </form>
             </section>
             <section role="region">
@@ -36,4 +67,9 @@
 
         </main>
     </body>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.js"
+    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    crossorigin="anonymous"></script>
+    <script src= "./app.js"></script>
 </html>

@@ -1,60 +1,65 @@
+const faker = require("faker");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
-const faker = require("faker");
+const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const { Campaign } = require("../models/campaign");
-const { app, runServer, closeServer } = require("../server");
-const { TEST_DATABASE_URL } = require("../config");
+mongoose.Promise = global.Promise;
 const should = chai.should();
 chai.use(chaiHttp);
+const expect = chai.expect;
 
-function seedCampaignData() {
-  console.info("seeding campaign data");
-  const seedData = [];
-  for (let i = 1; i <= 4; i++) {
-    seedData.push({
-      title: faker.company.companyName(),
-      players: [
-        {
-          playerName: faker.name.firstName(),
-          statSheet: faker.internet.url(),
-          email: faker.internet.email(),
-          session: 2,
-          expGained: 300,
-          currentLoot: faker.commerce.product(),
-          campaignName: faker.company.companyName()
-        }
-      ]
-    });
-  }
-  return Campaign.insertMany(seedData);
-}
-function teardownDb() {
-  return new Promise((resolve, reject) => {
-    console.warn("Deleting Database");
-    mongoose.connection
-      .dropDatabase()
-      .then(result => resolve(result))
-      .catch(err => reject(err));
-  });
-}
+const { app, runServer, closeServer } = require("../server");
+const { seedMinionManagerDatabase, createNewUser, createNewCampaign, createAuthUser, teardownDb, username, password} = require('../test/test-functions')
+const { TEST_DATABASE_URL, JWT_SECRET } = require("../config/main");
+const { BasicStrategy } = require("passport-http");
+const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
+const User = require("../models/user-model");
+const {Campaign} = require("../models/campaign")
 
 describe("Campaign Manager API resource", function() {
-  before(function() {
-    return runServer(TEST_DATABASE_URL);
+  let testUser;
+  function addUser(){
+    const username = "random";
+    const password = "password2";
+    return User.create({
+      username,
+      password
+    });
+  }
+    before(function() {
+      return runServer(TEST_DATABASE_URL);
+    });
+    beforeEach(function(done) {
+      addUser()
+      .then( user => {
+        testUser = user;
+        seedMinionManagerDatabase();
+        done();
+      });
   });
-  beforeEach(function() {
-    return seedCampaignData();
-  });
-  afterEach(function() {
-    return teardownDb();
-  });
-  after(function() {
-    return closeServer();
-  });
+    afterEach(function() {
+      return teardownDb();
+  
+    });
+    after(function() {
+      return closeServer();
+    });
 
   describe("GET endpoint", function() {
     it("should list campaign details on GET", function() {
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
+        .request(app)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
       let res;
       return chai
         .request(app)
@@ -71,6 +76,19 @@ describe("Campaign Manager API resource", function() {
         });
     });
     it("should check for correct fields", function() {
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
+        .request(app)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
       let resCamp;
       return chai
         .request(app)
@@ -109,6 +127,19 @@ describe("Campaign Manager API resource", function() {
 
   describe("POST endpoint", function() {
     it("should save a new Campaign", function() {
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
+        .request(app)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
       const newCamp = {
         title: faker.company.companyName(),
         players: [
@@ -158,6 +189,19 @@ describe("Campaign Manager API resource", function() {
 
   describe("PUT endpoint", function() {
     it("should update campaign data on send", function() {
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
+        .request(app)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
       const newData = {
         title: "better group",
         players: [
@@ -207,6 +251,19 @@ describe("Campaign Manager API resource", function() {
 
   describe("DELETE endpoint", function() {
     it("should delete campaign by id", function() {
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
+        .request(app)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
       let camp;
       return Campaign.findOne()
         .then(_camp => {

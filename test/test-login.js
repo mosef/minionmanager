@@ -9,43 +9,49 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 
 const { app, runServer, closeServer } = require("../server");
-const { TEST_DATABASE_URL } = require("../config");
+const { seedMinionManagerDatabase, createNewUser, createNewCampaign, teardownDb, username, password} = require('../test/test-functions')
+const { TEST_DATABASE_URL, JWT_SECRET } = require("../config/main");
 const { BasicStrategy } = require("passport-http");
 const { Strategy: JwtStrategy, ExtractJwt } = require("passport-jwt");
-const { User } = require("../models/user-model");
-const { JWT_SECRET } = require("../config");
+const User = require("../models/user-model");
 
 describe("Campaign Manager Login Auth Tests", function() {
-  const username = faker.name.title();
-  const password = faker.internet.password();
-  const firstName = faker.name.firstName();
-  const lastName = faker.name.lastName();
-
-  before(function() {
-    return runServer();
+let testUser;
+function addUser(){
+  const username = "random";
+  const password = "password2";
+  return User.create({
+    username,
+    password
   });
+}
+  before(function() {
+    return runServer(TEST_DATABASE_URL);
+  });
+  beforeEach(function(done) {
+    addUser()
+    .then( user => {
+      testUser = user;
+      seedMinionManagerDatabase();
+      done();
+    });
+});
+  afterEach(function() {
+    return teardownDb();
+
+  });
+  
   after(function() {
     return closeServer();
-  });
-  beforeEach(function() {
-    return User.hashPassword(password).then(password =>
-      User.create({
-        username,
-        password,
-        firstName,
-        lastName
-      })
-    );
-  });
-  afterEach(function() {
-    return User.remove({});
   });
 
   describe("User Registration POST endpoint", function() {
     it("Should reject empty requests", function() {
+      const user = {}
       return chai
         .request(app)
-        .post("/authenticate/login")
+        .post("/register/sign-up")
+        .send(user)
         .then(() => expect.fail(null, null, "Request should not succeed"))
         .catch(err => {
           if (err instanceof chai.AssertionError) {
@@ -58,7 +64,7 @@ describe("Campaign Manager Login Auth Tests", function() {
     it("Should reject incorrect usernames", function() {
       return chai
         .request(app)
-        .post("/authenticate/login")
+        .post("/register/sign-up")
         .auth("wrongUsername", password)
         .then(() => expect.fail(null, null, "Request should not succeed"))
         .catch(err => {
@@ -72,8 +78,8 @@ describe("Campaign Manager Login Auth Tests", function() {
     it("Should reject incorrect passwords", function() {
       return chai
         .request(app)
-        .post("/authenticate/login")
-        .auth(username, "wrongPassword")
+        .post("/register/sign-up")
+        .auth(testUser.username, "wrongPassword")
         .then(() => expect.fail(null, null, "Request should not succeed"))
         .catch(err => {
           if (err instanceof chai.AssertionError) {
@@ -84,25 +90,33 @@ describe("Campaign Manager Login Auth Tests", function() {
         });
     });
     it("Should return a valid auth token", function() {
-      return chai
+      const newUser = {
+        username: "Frieda",
+        password: "pass123",
+        firstName: "Ryan",
+        lastName: "Walters"
+      }
+      const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
+        return chai
         .request(app)
-        .post("/authenticate/login")
-        .auth(username, password)
+        .post("/register/authenticate")
+        .set('Authorization', 'Bearer', + token)
+        .send(newUser)
+        .auth(newUser.username, newUser.password)
         .then(res => {
-          expect(res).to.have.status(200);
           expect(res.body).to.be.an("object");
-          const token = res.body.authToken;
           expect(token).to.be.a("string");
           const payload = jwt.verify(token, JWT_SECRET, {
             algorithm: ["HS256"]
           });
-          const _id = payload.user._id;
-          expect(payload.user).to.deep.equal({
-            _id,
-            username,
-            firstName,
-            lastName
-          });
+          const id = payload.userId;
+        })
+        .catch(err => {
+          if (err instanceof chai.AssertionError) {
+            throw err;
+          }
+          const res = err.response;
+          expect(res).to.have.status(200);
         });
     });
   });

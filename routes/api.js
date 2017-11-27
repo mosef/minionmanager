@@ -5,11 +5,13 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise;
-const {PORT, DATABASE_URL} = require('../config');
+const passport = require('passport');
+const {PORT, DATABASE_URL} = require('../config/main');
 const {Campaign} = require('../models/campaign');
 
-router.get('/campaigns', (req, res) => {
-    Campaign
+router.get('/campaigns', passport.authenticate('jwt', { session: false }),(req, res)=> {
+  console.log(req.user)  
+  Campaign
       .find()
       .then(campaigns => {
         res.json(campaigns);
