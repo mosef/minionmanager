@@ -10,7 +10,7 @@ const {PORT, DATABASE_URL} = require('../config/main');
 const {Campaign} = require('../models/campaign');
 
 router.get('/campaigns', passport.authenticate('jwt', { session: false }),(req, res)=> {
-  console.log(req.user)  
+  console.log(req.user)
   Campaign
       .find()
       .then(campaigns => {
