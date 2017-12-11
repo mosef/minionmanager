@@ -1,0 +1,61 @@
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+body {
+    background-color: #3B3B3D;
+    text-align: center;
+}
+.main {
+    position: relative;
+}
+main p {
+    font-family: Montserrat;
+    font-size: 1.2em;
+    color: white;
+}
+.wrapper {
+    display: inline-block;
+    margin: auto;
+    margin-top: 10%;
+}
+input[type="button" ], input[type="submit" ], input[type="reset" ], input[type="file" ]::-webkit-file-upload-button, button {
+    border-color: none;
+    border-width: 0;
+    padding: 0;
+}
+.input-wrapper {
+    padding-top: 110px;
+}
+form label {
+    font-family: Monda;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 1.2em;
+    color: white;
+}
+form input {
+    padding: 5px;
+    margin: 10px;
+    width: 60%;
+}
+.login-btn{
+    font-family: Montserrat;
+    width: 231px;
+    height: 50px;
+    background: #F09E00;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 5%;
+}
+.sign-up {
+    width: 525px;
+    height: 558px;
+    background: #414045;
+    border-radius: 20px;
+}

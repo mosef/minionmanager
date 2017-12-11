@@ -1,0 +1,103 @@
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+body {
+    background: url("../img/1024.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    text-align: center;
+}
+header h1 { 
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 55.7635px;
+    letter-spacing: 0.23em;
+    color: #FFFFFF;
+}
+.logo {
+    width: 65%;
+}
+main p {
+    font-family: Montserrat;
+    font-size: 1.2em;
+    color: white;
+}
+.wrapper {
+    display: inline-block;
+    position: relative
+}
+input[type="button" ], input[type="submit" ], input[type="reset" ], input[type="file" ]::-webkit-file-upload-button, button {
+    border-color: none;
+    border-width: 0;
+    padding: 0;
+}
+.input-wrapper {
+    padding-top: 110px;
+}
+.fa {
+    position: absolute;
+    top: 15px;
+    right: 175px;
+    color: white;
+    cursor: pointer;
+}
+form label {
+    font-family: Monda;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 1.2em;
+    color: white;
+}
+form input {
+    padding: 5px;
+    margin: 10px;
+    width: 60%;
+}
+.submit-btn{
+    position: absolute;
+    bottom: 50px;
+    left: 15%;
+    width: 300px;
+    height: 50px;
+    background: #5EE2FF;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.form-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 100;
+}
+.js-form-hide {
+    top: 160px;
+    right: 20%;
+    left: 31%;
+    position: absolute;
+}
+.sign-up-btn, .login-btn{
+    font-family: Montserrat;
+    width: 231px;
+    height: 50px;
+    background: #F09E00;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.sign-up {
+    width: 525px;
+    height: 558px;
+    background: #414045;
+    border-radius: 20px;
+}
