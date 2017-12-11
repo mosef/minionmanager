@@ -19,10 +19,9 @@ registerRouter.post('/sign-up', (req, res) => {
         });
         newUser.save(function(err) {
             if (err) {
-                return res.json({ success: false, message: 'That username already exists.'});
+                return res.status(422).json({ success: false, message: 'That username already exists.'});
             }
-            return res.sendStatus(201);
-            res.json({ success: true, message: 'successfully created new user.'});
+            return res.status(200).json({ success: true, message: 'successfully created new user.'});
         });
     }
 });
@@ -34,18 +33,17 @@ registerRouter.post('/authenticate', function(req, res) {
         if (err) throw err;
 
         if (!user) {
-            res.send({ success: false, messsage: 'Authentication failed. User not found'});
+            res.status(400).json({ success: false, messsage: 'Authentication failed. User not found'});
         } else {
             user.comparePassword(req.body.password, function(err, isMatch){
                 if (isMatch && !err) {
                     const token = jwt.sign({id: user._id}, config.JWT_SECRET, {
                         expiresIn: 10080
                     });
-                    return res.sendStatus(200)
-                    res.json({success: true, token: 'Bearer ' + token});
+                    return res.json({success: true, token: 'Bearer ' + token});
                 } else {
                     
-                    res.send({ success: false, message: 'Athentication failed. Passwords did not match.'});
+                res.status(400).json({ success: false, message: 'Athentication failed. Passwords did not match.'});
                 }
             });
         }

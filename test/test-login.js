@@ -90,19 +90,22 @@ function addUser(){
         });
     });
     it("Should return a valid auth token", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)
         .post("/register/authenticate")
         .set('Authorization', 'Bearer', + token)
-        .send(newUser)
-        .auth(newUser.username, newUser.password)
+        .send(testUser)
+        .auth(testUser.username, testUser.password)
         .then(res => {
           expect(res.body).to.be.an("object");
           expect(token).to.be.a("string");

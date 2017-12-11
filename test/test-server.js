@@ -47,12 +47,15 @@ describe("Campaign Manager API resource", function() {
 
   describe("GET endpoint", function() {
     it("should list campaign details on GET", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)
@@ -76,12 +79,15 @@ describe("Campaign Manager API resource", function() {
         });
     });
     it("should check for correct fields", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)
@@ -127,12 +133,15 @@ describe("Campaign Manager API resource", function() {
 
   describe("POST endpoint", function() {
     it("should save a new Campaign", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)
@@ -189,12 +198,15 @@ describe("Campaign Manager API resource", function() {
 
   describe("PUT endpoint", function() {
     it("should update campaign data on send", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)
@@ -251,12 +263,15 @@ describe("Campaign Manager API resource", function() {
 
   describe("DELETE endpoint", function() {
     it("should delete campaign by id", function() {
-      const newUser = {
-        username: "Frieda",
-        password: "pass123",
-        firstName: "Ryan",
-        lastName: "Walters"
+      const testUser = {
+        username: "random",
+        password: "random12345"
       }
+      return chai
+      .request(app)
+      .post("/register/sign-up")
+      .send(testUser)
+      .then()
       const token = jwt.sign({userId: testUser._id}, JWT_SECRET, { expiresIn: 10000 });
         return chai
         .request(app)

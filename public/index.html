@@ -4,72 +4,41 @@
         <title>Minon Manager</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./normalize.css">
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
+        <script src="https://use.fontawesome.com/a5ce80834d.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     </head>
-    <body>
+    <body id="bg">
+        <div class="wrapper">
         <header role="banner">
-            <h1>Minion Manager</h1>
+            <h1>MINION MANAGER</h1>
         </header>
-        
         <main role="main">
-            <section>
-                <h2>Register an Account</h2>
-                <form method="post" class="js-register-form">
-                    <label for="POST-register">Username</label>
-                        <input id="user-name" type="text" name="registration">
-                    <label for"POST-register">Password</label>
-                        <input id="user-pass" type="password" name="registration">
-                    <label for"POST-register">First Name</label>
-                        <input id="first-name" type="text" name="registration">
-                    <label for"POST-register">Last Name</label>
-                        <input id="last-name" type="text" name="registration">
-                    <input type="submit" value="Register">
-                </form>
-            </section>
-            <section role="region">
-                <h2>Save a new Campaign</h2>
-                <form action="" method="post">
-                    <label for="POST-title">Title:</label>
-                    <input id="POST-title" type="text" name="saveCamp">
-                    <button>add player</button>
-                    <fieldset>
-                        <legend>Players</legend>
-                        <label for="POST-player-name">Player Name</label>
-                            <input type="text" name="saveCamp">
-                        <label for="POST-title">Stat Sheet</label>
-                            <input type="text" name="saveCamp">
-                        <label for="POST-email">Email</label>
-                            <input type="text" name="saveCamp">
-                        <label for="POST-session">Session</label>
-                            <input type="text" name="saveCamp">
-                        <label for="POST-exp">Exp Gained</label>
-                            <input type="text" name="saveCamp">
-                        <label for="POST-loot">Current Loot</label>
-                            <input type="text" name="saveCamp">
-                    </fieldset>
-                    <input type="submit" value="Save">
-                </form>
-            </section>
-            <section role="region">
-                <h2>View Campaigns</h2>
-                <button>View</button>
-                <div class="campaign-data-js">returned campaign data goes here</div>
-            </section>
-            <section role="region">
-                <h2>Edit Campaigns</h2>
-                <div class="campaign-edit-section">
-                    <button>Edit</button>
-                    <div class="fake-campaign"></div>
-                    <button>Delete</button>
-                </div>
-            </section>
-
+            <img src="./img/Group 3.png" class="logo">
+            <p>Minion Manager is a tool for Dungeon Masters to keep track of multiple players and campaigns. Spend more time on the game, and less on remembering all the details.</p>
+            <div class="button-container">
+                <button type="submit" class="sign-up-btn">SIGN UP</button>
+                <button class="login-btn">LOGIN</button>
+            </div>
+            <div class="form-background">
+                <section role="region" class="js-form-hide">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    <form method="post" class="js-register-form sign-up">
+                        <div class="input-wrapper">
+                            <label for="POST-register">Username</label><br>
+                                <input id="user-name" type="text" name="registration"><br>
+                            <label for"POST-register">Password</label><br>
+                                <input id="user-pass" type="password" name="registration"><br>
+                            <div class="form-button"></div>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </main>
+        </div>
     </body>
-    <script
-    src="https://code.jquery.com/jquery-3.2.1.js"
-    integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script>
-    <script src= "./app.js"></script>
+    <script src= "./js/app.js"></script>
 </html>

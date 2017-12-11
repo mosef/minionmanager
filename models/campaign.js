@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 const {playerSchema} = require('./player');
 
 const campaignSchema = mongoose.Schema({
-  title: {type: String},
-	players: [{ 
+  author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  title: {type: String, unique: true, required: true},
+	players: [{
     _id: false,
     playerName: {type: String},
     statSheet: {type: String},

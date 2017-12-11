@@ -12,7 +12,8 @@ const {Campaign} = require('../models/campaign');
 router.get('/campaigns', passport.authenticate('jwt', { session: false }),(req, res)=> {
   console.log(req.user)
   Campaign
-      .find()
+      .find({author: req.user.id})
+      .populate('author', 'username')
       .then(campaigns => {
         res.json(campaigns);
       })
@@ -22,7 +23,7 @@ router.get('/campaigns', passport.authenticate('jwt', { session: false }),(req, 
       });
   });
 
-router.post('/campaigns', (req, res) => {
+router.post('/campaigns/create', passport.authenticate('jwt', { session: false }),(req, res) => {
   const requiredFields = ['title', 'players'];
   for (let i=0; i<requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -34,6 +35,7 @@ router.post('/campaigns', (req, res) => {
   }
   Campaign
   .create({
+    author: req.user.id,
     title: req.body.title,
     players: req.body.players
   })
@@ -44,7 +46,7 @@ router.post('/campaigns', (req, res) => {
   });
 });
 
-router.put('/campaigns/:id', (req, res) => {
+router.put('/campaigns/:id', passport.authenticate('jwt', { session: false }),(req, res) => {
   if (!(req.params.id && req.body._id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -61,11 +63,11 @@ router.put('/campaigns/:id', (req, res) => {
 
   Campaign
     .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
-    .then(updatedPost => res.status(204).end())
+    .then(updatedPost => res.status(200).json({message: 'campaign updated'}).end())
     .catch(err => res.status(500).json({message: 'Something went wrong'}));
 });
 
-router.delete('/campaigns/:id', (req,res) => {
+router.delete('/campaigns/:id', passport.authenticate('jwt', { session: false }),(req,res) => {
   Campaign
   .findByIdAndRemove(req.params.id)
   .then(()=> {

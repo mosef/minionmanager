@@ -1,0 +1,73 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Minon Manager - Account</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/normalize.css">
+        <link rel="stylesheet" href="./css/account-styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+        <script src="https://use.fontawesome.com/a5ce80834d.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <main>
+            <nav role="navigation" class="side-nav">
+                    <div class ="greeting"></div>
+                    <div class="btn-wrapper">
+                        <button class="side-btn campaign-btn">Campaigns</button>
+                        <button class="side-btn new-campaign">New Campaign</button>
+                        <button class="side-btn">Loot Generator</button>
+                    </div>
+                    <div class="side-bottom">
+                        <a>Logout</a>
+                    </div>
+                </nav>
+            <div class="right-side">
+                <section role="region" class="campaign-section">
+                    <div class="campaigns-wrapper">
+                    </div>
+                </section>
+                <div class="form-background">
+                    <section role="region" class="js-create-fields">
+                        <form method="" class="js-create-campaign">
+                            <div class="title-wrapper">
+                                <label for="title">Title</label>
+                                <input id="title" required>
+                            </div>
+                            <fieldset>
+                                <div id="players">
+                                    <div class="new-player">
+                                        <label>Player Name</label>
+                                        <input class="player-name" required>
+                                        <label>Stat Sheet</label>
+                                        <input class="player-sheet" required>
+                                        <label>Email</label>
+                                        <input class="player-email" required>
+                                        <label>Session</label>
+                                        <input class="player-session" required>
+                                        <label>Exp</label>
+                                        <input class="player-exp" required>
+                                        <label>Current Loot</label>
+                                        <input class="player-loot" >
+                                    </div>
+                                </div>
+                                <div class="add-player">
+                                    <div class="icon-wrapper">
+                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                        <p>add player</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="button-nav">
+                                <input type="submit" value="Create" class="create-btn">
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src= "./js/account.js"></script>
+</html>
