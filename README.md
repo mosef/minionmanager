@@ -15,6 +15,9 @@ sessions</p>
 >   npm start
 ```
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
+Demo Log In:
+username: demouser
+password: demo12345
 ### Testing
 ```
 >   npm test
