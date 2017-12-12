@@ -35,7 +35,7 @@ Things like session count, exp tracking, and email addresses all provide a quick
 players an open method of manipulating the data between sessions.</p>
 
 <h2>Wireframes & Mockups</h2>
-<a href="https://www.figma.com/file/EsVpgEAbosvr2GwXxWoZUueV/MinionManager-Mock-Up"></a>
+<a href="https://www.figma.com/file/EsVpgEAbosvr2GwXxWoZUueV/MinionManager-Mock-Up">Design Board</a>
 <p>Initial wireframes were created for each page. Following that I began color scheming and developing the logo along with the landing page.</p>
 <img src="">
 
