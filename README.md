@@ -34,8 +34,9 @@ With Minion Manager you can quickly check their playersheet through the link the
 Things like session count, exp tracking, and email addresses all provide a quick method of getting player information without providing 
 players an open method of manipulating the data between sessions.</p>
 
-<h2>Wireframes</h2>
-<p>Initial wireframes were created for each page. Mockups of all key processes were designed with user flow in mind.</p>
+<h2>Wireframes & Mockups</h2>
+<a href="https://www.figma.com/file/EsVpgEAbosvr2GwXxWoZUueV/MinionManager-Mock-Up"></a>
+<p>Initial wireframes were created for each page. Following that I began color scheming and developing the logo along with the landing page.</p>
 <img src="">
 
 <h2>Technology</h2>
