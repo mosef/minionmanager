@@ -1,339 +1,341 @@
 html {
-    box-sizing: border-box;
-  }
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-body {
-    background-color: #3B3B3D;
-    text-align: center;
-    position: relative;
+  box-sizing: border-box;
 }
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  background-color: #3b3b3d;
+  text-align: center;
+}
+main {
+  display: inline-block;
+  width: 100%;
+}
+button,
+input[type="submit"],
+input[type="reset"] {
+  color: inherit;
+  border: none;
+  font: inherit;
+  outline: inherit !important;
+  background: none !important;
+}
+/**Floats**/
+.campaign,
+.player-info.active,
+.new-player,
+.add-player,
+.side-nav {
+  float: left;
+}
+/**FONTS **/
+.side-nav,
+.back-button,
+.campaign h3,
+.js-create-campaign,
+.player-info.active,
+.title-wrapper,
+.title,
+.delete-confirm,
+.save-dialogue,
+.success-dialogue {
+  font-family: Monda;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+}
+.js-create-campaign,
+.player-info.active h4,
+.hint {
+  font-size: 0.9em;
+}
+.delete-campaign:hover,
+.edit-campaign:hover,
+.save-campaign:hover {
+  font-size: 1.6em;
+}
+/***Cursors ***/
+button,
+.side-btn,
+.side-bottom,
+.c-title,
+.button-nav,
+.button-nav input,
+.add-player,
+.remove-player,
+.success-dialogue:hover {
+  cursor: pointer;
+}
+/**SideBar**/
 nav h1 {
-    font-size: 1.3em;
-    margin-top: 20%;
-    margin-left: 10%;
-    text-align: left;
+  font-size: 1.3em;
+  margin-top: 20%;
+  margin-left: 10%;
+  text-align: left;
 }
 .btn-wrapper {
-    margin-top: 25%;
-    display: inline-grid;
-    width: 100%;
+  margin-top: 25%;
+  width: 100%;
 }
 .side-nav {
-    background-color: #414045;
-    width: 300px;
-    height: 1000px;
-    display: inline-block;
-    position: absolute;
-    left: 0px;
-    font-family: Monda;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    font-size: 1.2em;
-    color: white;
+  background-color: #414045;
+  width: 300px;
+  height: 1000px;
+  display: inline-block;
+  font-size: 1.2em;
+  color: white;
 }
-button, input[type="submit"], input[type="reset"] {
-    color: inherit;
-    border: none;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit !important;
-    background: none !important;
+.side-btn,
+.side-bottom {
+  text-align: center;
+  padding: 20px;
+  color: #309ce7;
+  width: 100%;
 }
-.delete-campaign:hover {
-    color: #FD5B13;
-    font-size: 1.6em;
-}
-.edit-campaign:hover, .save-campaign:hover {
-    color: #309CE7;
-    font-size: 1.6em;
-}
-.side-btn, .side-bottom {
-    text-align: center;
-    padding: 20px;
-    cursor: pointer;
-    color: #309CE7;
-    width: 100%;
-}
-.side-btn:hover {
-    background-color: #77777A !important;
+.side-btn:hover,
+.side-bottom:hover {
+  background-color: #77777a !important;
 }
 .side-bottom {
-    position: absolute;
-    bottom: 10px;
-    color: white;
+  bottom: 10px;
+  color: white;
 }
-.side-bottom:hover {
-    background-color: #77777A;
+/**Right Side**/
+.right-side {
+  margin-right: 1.6%;
+  margin-left: 300px;
 }
-.button-nav {
-    position: fixed;
-    top: 10%;
-    left: 22%;
+.right-side.active,
+.campaign-section.active,
+.campaigns-wrapper.active,
+.campaign.active {
+  height: 100%;
 }
-.campaign-section.active {
-    height: 100%;
-}
-.campaigns-wrapper {
-    position: relative;
-}
+/***Campaign Blocks ***/
 .campaigns-wrapper.active {
-    height: 100%;
+  height: 100%;
 }
 .campaigns-wrapper h1 {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 .campaign-buttons {
-    position: absolute;
-    margin-top: 30px;
-    left: 0;
-    width: 180px;
-    z-index: 1;
-}
-.campaign-players {
-    margin-top: 115px;
+  width: 180px;
+  z-index: 1;
 }
 .campaign {
-    width: 300px;
-    height: 250px;
-    float: left;
-    background-color: #333335;
-    padding: 20px;
-    box-shadow: 0px 10px 2px -10px #F09E00;
-    border-radius: 20px;
-    position: relative;
-    margin: 75px 20px 20px 20px;
-    transition: all .4s ease-out;
+  width: 300px;
+  height: 250px;
+  background-color: #333335;
+  padding: 85px;
+  box-shadow: 0px 10px 2px -10px #f09e00;
+  border-radius: 20px;
+  margin: 75px 20px 20px 20px;
+  transition: all 0.4s ease-out;
 }
 .campaign.active {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    background-color: #3B3B3D;
-    box-shadow: none;
-    border-radius: none;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: #3b3b3d;
+  box-shadow: none;
+  border-radius: none;
+  position: absolute;
 }
-.campaign h3 {
-    font-family: Monda;
-    font-style: normal;
-    font-weight: normal;
-    line-height: normal;
-    color: white;
+.campaign h3,
+.campaign label {
+  color: white;
 }
 .campaign h4 {
-    color: rgb(104, 104, 108);
-}
-.campaign label {
-    color: white;
-}
-.c-title {
-    cursor: pointer;
-    margin-top: 85px;
+  color: rgb(104, 104, 108);
 }
 .c-title.active {
-    position: absolute;
-    left: 0px;
-    z-index: 1;
-    top: 0px;
-    margin-left: 25px;
+  z-index: 1;
+  text-align: left;
 }
 .c-title:hover {
-    color:#309CE7;
+  color: #309ce7;
 }
-.form-background {
-    width: 75%;
-    position: absolute;
+.delete-campaign:hover {
+  color: #fd5b13;
 }
-fieldset {
-    border: none;
-    color: white;
-    margin-top: 100px;
-    padding-top: 100px;
-}
-.js-create-campaign {
-    font-family: Monda;
-    font-size: 0.9em;
-}
-.js-hidden {
-    background: rgba(86, 85, 89, 0.2) !important;
-    border: none;
-}
-.player-info {
-    display: none;
-    transition: all .4s ease-out;
-}
-.player-info.active {
-    display: block;
-    width: 300px;
-    float: left;
-    background-color: #333335;
-    margin: 5px;
-    padding: 20px;
-    box-shadow: 0px 10px 2px -10px #F09E00;
-    border-radius: 20px;
-    position: relative;
-    animation: tinyblocks .6s ease-in-out 0s 1;
-    font-family: Monda;
-    color: #68686C;
-    overflow: hidden;
-}
-.player-info.active p {
-    color: white;
-    margin: 10px !important;
-}
-.player-info.active h4 {
-    font-size: 0.9em;
-    margin: 10px !important;
-}
-@keyframes tinyblocks {
-    0%{
-        width: 0px;
-        height: 0px;
-    }
-    10%{
-        width: 300px;
-    }
-    100%{
-        width: 300px;
-        height: 300px;
-    }
-}
-
-.player-info label{
-    margin: 20%;
-}
-.player-info input, #title{
-    margin: 1%;
-    color: white;
-}
-.button-nav {
-    font-family: Montserrat !important;
-    width: 60px !important;
-    height: 30px !important;
-    background: #F09E00 !important;
-    border-radius: 20px !important;
-    cursor: pointer;
-    text-align: center;
-    position: absolute;
-    left: 15px;
-}
-.create-btn {
-    margin-top: 6px;
-}
-.button-nav:hover {
-    background: #309CE7 !important;
-}
-.new-player {
-    width: 300px;
-    height: 300px;
-    float: left;
-    background-color: #333335;
-    margin: 5px;
-    padding: 20px;
-    box-shadow: 0px 10px 2px -10px #F09E00;
-    border-radius: 20px;
-    position: relative;
-}
-fieldset input, #title {
-    background-color: rgba(86, 85, 89, 0.2);
-    border: none;
-    margin-top: 5px;
-    width: 250px;
-    padding-left: 20px;
-}
-.title-wrapper {
-    width: 300px;
-    height: 50px;
-    background-color: #333335;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 20px;
-    font-family: Monda;
-    font-size: 1.6em;
-    color: white;
-    position: absolute;
-    left: 0px;
-    text-align: left;
-    display: inline-flex;
-}
-.title-wrapper input {
-    width: 220px !important;
-    border-radius: 20px;
-    margin: 1px !important;
+.edit-campaign:hover,
+.save-campaign:hover {
+  color: #309ce7;
 }
 .title {
-    position: absolute;
-    left: 50px;
-    top: 155px;
-    z-index: 1;
-    background-color: #333335;
-    border-radius: 20px;
-    border-color: none !important;;
-    font-family: Monda;
-    font-size: 1.1em;
-    color: white;
-    padding: 8px
+  position: absolute;
+  left: 412px;
+  top: 90px;
+  z-index: 1;
 }
-.add-player {
+.back-button {
+  position: absolute;
+  left: 320px;
+  top: 45px;
+  z-index: 1;
+  color: white;
+}
+/**Form**/
+fieldset input,
+#title {
+  background-color: rgba(86, 85, 89, 0.2);
+  border: none;
+  margin-top: 5px;
+  width: 250px;
+  padding-left: 20px;
+  color: white;
+}
+fieldset {
+  border: none;
+  color: white;
+  width: 100%;
+}
+.js-create-fields {
+  text-align: left;
+  padding-top: 180px;
+}
+.js-create-campaign {
+  font-size: 0.9em;
+  display: inline;
+  position: relative;
+}
+.js-hidden {
+  background: rgba(86, 85, 89, 0.2);
+  border: none;
+}
+.title-wrapper {
+  margin-bottom: 25px;
+  margin-left: 20px;
+  margin-top: 63px;
+}
+.title-wrapper label {
+  color: white;
+  padding-right: 10px;
+}
+.player-info {
+  display: none;
+  transition: all 0.4s ease-out;
+}
+.player-info.active {
+  display: block;
+  width: 300px;
+  background-color: #333335;
+  margin: 5px;
+  padding: 20px;
+  box-shadow: 0px 10px 2px -10px #f09e00;
+  border-radius: 20px;
+  animation: tinyblocks 0.6s ease-in-out 0s 1;
+  color: #68686c;
+  overflow: hidden;
+}
+.player-info.active p {
+  color: white;
+  margin: 10px !important;
+}
+.player-info.active h4 {
+  font-size: 0.9em;
+  margin: 10px !important;
+}
+@keyframes tinyblocks {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+  10% {
+    width: 300px;
+  }
+  100% {
     width: 300px;
     height: 300px;
-    float: left;
-    margin: 5px;
-    border-radius: 20px;
-    border-style: dashed;
-    cursor: pointer;
-    position: relative;
+  }
+}
+.player-info label {
+  margin: 20%;
+}
+.player-name,
+.player-email,
+.player-exp,
+.player-loot,
+.player-sheet,
+.player-session {
+  color: white;
+}
+.new-player {
+  width: 300px;
+  height: 356.4px;
+  background-color: #333335;
+  margin: 5px;
+  padding: 20px;
+  box-shadow: 0px 10px 2px -10px #f09e00;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+}
+.add-player {
+  width: 300px;
+  height: 356.4px;
+  margin: 5px;
+  border-radius: 20px;
+  border-style: dashed;
+  text-align: center;
 }
 .icon-wrapper {
   width: 300px;
   height: 100px;
-  padding: 20px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -50px 0 0 -150px;
+  display: inline-block;
+  margin: auto;
+  padding-top: 125px;
 }
 .fa-plus-square-o {
-    font: normal normal normal 25px/1 FontAwesome !important;
+  font: normal normal normal 25px/1 FontAwesome !important;
 }
 .remove-player {
-    background: none !important;
-    color: inherit;
-    border: none;
-    padding: 0 !important;
-    font: inherit;
-    cursor: pointer;
-    outline: inherit !important;
-    position: absolute;
-    right: 10px;
-    top: 10px;
+  background: none !important;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  outline: inherit !important;
+  position: absolute;
+  right: 15px;
+  top: 10px;
 }
-.right-side {
-   padding-left: 300px;
-   position: relative;
-   margin-right: 1.6%;
+.button-nav {
+  font-family: Montserrat !important;
+  width: 60px !important;
+  height: 30px !important;
+  background: #f09e00 !important;
+  border-radius: 20px !important;
+  position: absolute;
+  left: 20px;
+  padding-top: 5px;
 }
-.right-side.active {
-    height: 100%;
+.button-nav:hover {
+  background: #309ce7 !important;
 }
-.delete-confirm, .save-dialogue {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    right: 40%;
-    width: 300px;
-    height: 100px;
-    background-color: #333335;
-    box-shadow: 0px 10px 2px -10px #309CE7;
-    border-radius: 20px;
-    border: 1px solid #309CE7;
-    color: white;
-    font-family: Monda;
-    font-size: 1em;
-    z-index: 2;
+.delete-confirm,
+.save-dialogue,
+.success-dialogue {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  right: 40%;
+  width: 300px;
+  height: 100px;
+  background-color: #333335;
+  box-shadow: 0px 10px 2px -10px #309ce7;
+  border-radius: 20px;
+  border: 1px solid #309ce7;
+  color: white;
+  font-size: 1em;
+  z-index: 2;
+}
+.success-dialogue:hover {
+  background-color: #8a8a91;
+}
+.hint {
+  font-size: 0.9em;
 }
