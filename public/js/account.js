@@ -25,6 +25,14 @@ function logout() {
     location.href = "/";
   });
 }
+function logoutMobil() {
+  $(".side-btn.mobile").on("click", function(e) {
+    location.href = "/";
+  });
+}
+$(".sandwich-btn").on("click", function(e) {
+  $(".btn-wrapper").toggleClass("active");
+});
 //Creat Campaign Functions
 function hideForm() {
   $(".js-create-fields").hide();
@@ -35,6 +43,7 @@ function showCreateFields() {
     $(".campaigns-wrapper").empty();
     $(".campaign-section").hide();
     $(".js-create-fields").show();
+    $(".btn-wrapper").toggleClass("active");
     inputClear();
   });
 }
@@ -142,6 +151,7 @@ function loadCampaigns(res) {
     e.preventDefault();
     $(".js-create-fields").hide();
     $(".campaign-section").show();
+    $(".btn-wrapper").toggleClass("active");
     $.ajax({
       url: "/api/campaigns",
       headers: {
@@ -398,10 +408,11 @@ function deleteCampaign(res) {
 $(function() {
   checkUser();
   logout();
+  logoutMobil();
   hideForm();
   showCreateFields();
   createSubmit();
   addPlayer();
   loadCampaigns();
-  renderCampaigns(res);
+  renderCampaigns();
 });

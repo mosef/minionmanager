@@ -79,6 +79,10 @@ nav h1 {
 .btn-wrapper {
   margin-top: 25%;
   width: 100%;
+  display: block;
+}
+.sandwich-btn, .side-btn.mobile {
+  display: none;
 }
 .side-nav {
   background-color: #414045;
@@ -338,4 +342,120 @@ fieldset {
 }
 .hint {
   font-size: 0.9em;
+}
+
+/*** Media Queries ***/
+@media (max-width: 975px) {
+  .side-nav {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 15px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+  }
+  .btn-wrapper {
+    margin-top: 0px;
+    background-color: white;
+    width: 300px;
+    right: 0px;
+    display: none;
+    position: absolute;
+  }
+  .btn-wrapper.active {
+    display: block;
+    animation: menudrop 0.6s ease-in-out 0s 1;
+    overflow: hidden;
+  }
+  @keyframes menudrop {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    10% {
+      width: 300px;
+    }
+    100% {
+      width: 300px;
+      height: 220px;
+    }
+  }
+  .side-bottom {
+    display: none;
+  }
+  .side-btn.mobile {
+    text-align: center;
+    display: block;
+    padding: 20px;
+    color: #309ce7;
+  }
+  .greeting {
+    width: 300px;
+  }
+  .sandwich-btn {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    font-size: 1.6em;
+  }
+  .right-side {
+    margin-top: 12%;
+    margin-left: 0px;
+    margin-right: 0px;
+    text-align: center;
+  }
+  .campaign-section {
+    display: inline-block;
+  }
+  .campaign-section.active,
+  .campaigns-wrapper.active {
+    height: 100%;
+    width: 100%;
+  }
+  .campaigns-wrapper.active {
+    margin: 0px;
+    padding: 0px;
+  }
+  .campaign,
+  .campaign.active {
+    margin: 0px;
+    margin-right: 20px;
+  }
+  .campaign.active {
+    padding: 25px;
+  }
+}
+@media (max-width: 700px) {
+  .campaign.active{
+    padding: 10px;
+  }
+  
+}
+@media (max-width: 649px) {
+  .campaign,
+  .campaign.active {
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 619px) {
+  .right-side {
+    margin-top: 15%;
+    margin-left: 145px;
+  }
+}
+@media (max-width: 540px) {
+  .right-side {
+    margin-top: 20%;
+    margin-left: 100px;
+  }
+}
+@media (max-width: 325px) {
+  .right-side {
+    margin-top: 25%;
+    margin-left: 50px;
+  }
 }
