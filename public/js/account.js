@@ -1,6 +1,5 @@
 let token = localStorage.getItem("currentUser");
 let greetName = localStorage.getItem("username");
-//function to render loader while the checkUser funciton works
 function checkUser() {
   if (token) {
     $.ajax({
@@ -8,7 +7,10 @@ function checkUser() {
       headers: {
         Authorization: token
       },
-      success: greeting(), //function to hide loader on successful check
+      success: ()=> {
+        greeting();
+        $(".loader-background").remove();
+      },
       error: () => {
         location.href = "/login.html";
       }
@@ -22,18 +24,48 @@ function greeting() {
 }
 function logout() {
   $(".side-bottom").on("click", function(e) {
+    localStorage.clear();
     location.href = "/";
   });
 }
 function logoutMobil() {
   $(".side-btn.mobile").on("click", function(e) {
+    localStorage.clear();
     location.href = "/";
   });
+}
+function renderLoader() {
+    $(".js-content").append(`
+    <div class ="loader-background">
+      <div class="loader loader--style4" title="3">
+      <h1>Loading</h1>
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="100px" height="50px" viewBox="0 0 24 24" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+            <rect x="0" y="0" width="4" height="7" fill="#333">
+              <animateTransform  attributeType="xml"
+                attributeName="transform" type="scale"
+                values="1,1; 1,3; 1,1"
+                begin="0s" dur="0.6s" repeatCount="indefinite" />       
+            </rect>
+            <rect x="10" y="0" width="4" height="7" fill="#333">
+              <animateTransform  attributeType="xml"
+                attributeName="transform" type="scale"
+                values="1,1; 1,3; 1,1"
+                begin="0.2s" dur="0.6s" repeatCount="indefinite" />       
+            </rect>
+            <rect x="20" y="0" width="4" height="7" fill="#333">
+              <animateTransform  attributeType="xml"
+                attributeName="transform" type="scale"
+                values="1,1; 1,3; 1,1"
+                begin="0.4s" dur="0.6s" repeatCount="indefinite" />       
+            </rect>
+        </svg>
+    </div>
+  </div>`);
 }
 $(".sandwich-btn").on("click", function(e) {
   $(".btn-wrapper").toggleClass("active");
 });
-//Creat Campaign Functions
 function hideForm() {
   $(".js-create-fields").hide();
 }
@@ -96,7 +128,7 @@ function createSubmit() {
       players: players
     };
     $.ajax({
-      url: "/api/campaigns/create",
+      url: "/api/campaigns",
       headers: {
         Authorization: token
       },
@@ -108,9 +140,7 @@ function createSubmit() {
         inputClear();
         successDialogue();
       },
-      error: err => {
-        console.error(err);
-      }
+      error: err => {}
     });
   });
 }
@@ -145,7 +175,6 @@ function successDialogue() {
     $(".campaign-btn").trigger("click");
   });
 }
-//Read Functions
 function loadCampaigns(res) {
   $(".campaign-btn").click(e => {
     e.preventDefault();
@@ -167,9 +196,7 @@ function loadCampaigns(res) {
         editPlayers(res);
         renderCampaigns(res);
       },
-      error: err => {
-        console.error(err);
-      }
+      error: err => {}
     });
   });
 }
@@ -258,9 +285,7 @@ $(".campaigns-wrapper").on("click", ".c-title", function(e) {
   $(this)
     .next()
     .show()
-    .toggleClass("active");
-  $(this)
-    .next()
+    .toggleClass("active")
     .children()
     .toggleClass("active");
   $(".right-side").toggleClass("active");
@@ -282,7 +307,6 @@ $(".campaigns-wrapper").on("click", ".back-button", function(e) {
   $(".c-title").show();
   $(".fa-chevron-left").toggle();
 });
-//Update functions
 function editPlayers(res) {
   $(".campaigns-wrapper").on("click", ".edit-campaign", function(e) {
     let id = $(this)
@@ -356,9 +380,7 @@ function editPlayers(res) {
               $(".save-dialogue").remove();
               location.href = "/account.html";
             },
-            error: err => {
-              console.error(err);
-            }
+            error: err => {}
           });
         });
         $(".cancel").on("click", function() {
@@ -368,7 +390,6 @@ function editPlayers(res) {
   });
 }
 
-//Delete functions
 function deleteCampaign(res) {
   $(".campaigns-wrapper").on("click", ".delete-campaign", function() {
     let campId = $(this)
@@ -394,9 +415,7 @@ function deleteCampaign(res) {
           $(".delete-confirm").remove();
           $(".campaign-btn").trigger("click");
         },
-        error: err => {
-          console.error(err);
-        }
+        error: err => {}
       });
     });
     $(".cancel").on("click", function() {
@@ -406,6 +425,7 @@ function deleteCampaign(res) {
 }
 
 $(function() {
+  renderLoader();
   checkUser();
   logout();
   logoutMobil();

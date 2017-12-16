@@ -13,14 +13,11 @@ function loginSubmit() {
         password: passField
       }),
       success: data => {
-        console.log(data.token);
         let token = data.token;
         localStorage.setItem("currentUser", token);
         location.href = "/account.html";
       },
-      error: err => {
-        console.error(err);
-      }
+      error: err => {}
     });
   });
 }

@@ -47,7 +47,6 @@ function loginSubmit() {
         location.href = "/account.html";
       },
       error: err => {
-        console.error(err);
       }
     });
   });
@@ -86,12 +85,10 @@ function registerSumbit() {
             location.href = "/account.html";
           },
           error: err => {
-            console.error(err);
           }
         });
       },
       error: err => {
-        console.error(err);
       }
     });
   });

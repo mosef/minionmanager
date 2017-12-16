@@ -1,7 +1,6 @@
 <h1>Minion Manager</h1>
-<p><a href="https://dream-walker.herokuapp.com/">Minion Manager</a> is a responsive full-stack app made for Table-Top coordinators to keep track of player information between
+<p><a href="https://sheltered-coast-97878.herokuapp.com/">Minion Manager</a> is a responsive full-stack app made for Table-Top coordinators to keep track of player information between
 sessions</p>
-<img src="">
 
 ## Getting started
 ### Installing
@@ -15,9 +14,11 @@ sessions</p>
 >   npm start
 ```
 Then open [`localhost:8000`](http://localhost:8000) in a browser.
-Demo Log In:
+```
+>   Demo Log In:
 username: demouser
 password: demo12345
+```
 ### Testing
 ```
 >   npm test
@@ -40,7 +41,6 @@ players an open method of manipulating the data between sessions.</p>
 <h2>Wireframes & Mockups</h2>
 <a href="https://www.figma.com/file/EsVpgEAbosvr2GwXxWoZUueV/MinionManager-Mock-Up">Design Board</a>
 <p>Initial wireframes were created for each page. Following that I began color scheming and developing the logo along with the landing page.</p>
-<img src="">
 
 <h2>Technology</h2>
 <h3>Front End</h3>
