@@ -196,11 +196,9 @@ fieldset input,
 fieldset {
   border: none;
   color: white;
-  /*! width: 100%; */
 }
 .js-create-fields {
   text-align: left;
-  /*! padding-top: 180px; */
 }
 .js-create-campaign {
   font-size: 0.9em;
