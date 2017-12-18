@@ -58,7 +58,7 @@ function addUser(){
             throw err;
           }
           const res = err.response;
-          expect(res).to.have.status(401);
+          expect(res).to.have.status(400);
         });
     });
     it("Should reject incorrect usernames", function() {
@@ -72,7 +72,7 @@ function addUser(){
             throw err;
           }
           const res = err.response;
-          expect(res).to.have.status(401);
+          expect(res).to.have.status(400);
         });
     });
     it("Should reject incorrect passwords", function() {
@@ -86,7 +86,7 @@ function addUser(){
             throw err;
           }
           const res = err.response;
-          expect(res).to.have.status(401);
+          expect(res).to.have.status(400);
         });
     });
     it("Should return a valid auth token", function() {
