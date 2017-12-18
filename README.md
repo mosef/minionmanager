@@ -66,3 +66,5 @@ players an open method of manipulating the data between sessions.</p>
   <li>User passwords are encrypted using <a href="https://github.com/dcodeIO/bcrypt.js">bcrypt.js</a>.</li>
   <li><a href="http://passportjs.org/">Passport</a> is used to control endpoints from unauthorized users.</li>
 </ul>
+<h3>Image Credits </h3>
+<p>Inkeeper by D&D 5e Manual</p>

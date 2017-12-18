@@ -24,7 +24,7 @@ header h1 {
   color: #ffffff;
 }
 .logo {
-  width: 65%;
+  width: 50%;
 }
 main p {
   font-family: Montserrat;
@@ -50,7 +50,7 @@ button {
 .fa {
   position: absolute;
   top: 15px;
-  right: 175px;
+  right: 20px;
   color: white;
   cursor: pointer;
 }
@@ -65,19 +65,16 @@ form label {
 form input {
   padding: 5px;
   margin: 10px;
-  width: 60%;
+  width: 75%;
 }
 .submit-btn {
-  position: absolute;
-  bottom: 50px;
-  left: 15%;
   width: 300px;
   height: 50px;
   background: #5ee2ff;
   border-radius: 20px;
   cursor: pointer;
 }
-.form-background {
+.form-background.active {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -86,10 +83,11 @@ form input {
   margin: 100;
 }
 .js-form-hide {
-  top: 160px;
-  right: 20%;
-  left: 31%;
+  top: 130px;
+  right: 40%;
+  left: 40%;
   position: absolute;
+  text-align: center;
 }
 .sign-up-btn,
 .login-btn {
@@ -105,7 +103,53 @@ form input {
   background: #414045;
   border-radius: 20px;
 }
-
+article {
+  padding: 5%;
+  padding-top: 0;
+}
+article h2{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 1.6em;
+  letter-spacing: 0.23em;
+  color: #ffffff;
+}
+article p {
+  margin-bottom: 10px;
+}
+.about {
+  margin-bottom: 300px;
+  height: 550px;
+  padding-top: 50px;
+}
+.about-text,
+.solution-text {
+  width: 50%;
+  display: inline-block;
+}
+.about-text {
+  text-align: left;
+}
+.solution-text {
+  text-align: right;
+}
+.solution {
+  height: 550px;
+}
+.demopic {
+  width: 50%;
+  box-shadow: 
+    0 4px 8px 0 rgba(0,0,0,0.2),
+    0 6px 20px 0 rgba(0,0,0,0.19)
+}
+.demopic.inkeeper {
+  float: right;
+}
+.demopic.sample {
+  float: left;
+}
 /*** Media Queries ***/
 @media only screen and (min-width: 350px) and (max-width: 480px) {
   .sign-up-btn,
@@ -131,6 +175,17 @@ form input {
   }
   .form-background {
     position: static;
+  }
+  .about-text,
+  .solution-text {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+  }
+ .demopic.sample,
+ .demopic.inkeeper {
+    /*! float: none; */
+   width: 100%;
   }
   .js-form-hide {
     top: 50px;

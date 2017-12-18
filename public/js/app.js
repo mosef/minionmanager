@@ -5,12 +5,14 @@ function closeSignUp() {
   $(".fa").on("click", function(e) {
     e.preventDefault();
     $(".js-form-hide").hide();
+    $(".form-background").toggleClass("active");
   });
 }
 function signUp() {
   $(".sign-up-btn").on("click", function(e) {
     e.preventDefault();
     $(".js-form-hide").show();
+    $(".form-background").toggleClass("active");
     $(".form-button")
       .empty()
       .append(`<button class="submit-btn register">REGISTER</button>`);
@@ -20,6 +22,7 @@ function logIn() {
   $(".login-btn").on("click", function(e) {
     e.preventDefault();
     $(".js-form-hide").show();
+    $(".form-background").toggleClass("active");
     $(".form-button")
       .empty()
       .append(`<button class="submit-btn login">LOGIN</button>`);
