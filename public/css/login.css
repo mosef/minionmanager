@@ -65,77 +65,74 @@ form input {
 }
 
 /*** Media Queries ***/
-@media only screen 
-  and (min-width: 350px)
-  and (max-width: 480px) {
-    .sign-up-btn,
-    .login-btn {
-      margin: 10px;
-    }
-     main p {
-       font-size: 1em;
-       height: 60px;
-       padding: 22px;
-       margin-left: 0px;
-       margin-right: 10px;
-       margin-bottom: 60px
-    }
-      header h1 {
-        font-family: Montserrat;
-        font-style: normal;
-        font-weight: normal;
-        line-height: normal;
-        font-size: 3em;
-        letter-spacing: 0.23em;
-        color: #ffffff;
-    }
-    .form-background {
-      position: static;
-    }
-    .js-form-hide {
-        top: 50px;
-        right: 0px;
-        left: 0px;
-        position: absolute;
-    }
-    .js-register-form.sign-up {
-        position: fixed;
-        height: 100%;
-        top: 0px;
-        right: 0px;
-        left: 0px;
-        bottom: 0px;
-        background: #414045;
-        border-radius: 0px;
-    }
-    .sign-up {
-      width: auto;
-    }
-    .input-wrapper {
-      margin-top: 30%;
-      padding: 0px;
-      width: 100%;
-      
-    }
-    .submit-btn {
-      position: static;
-width: 230px;
-height: 50px;
-background: #5ee2ff;
-border-radius: 20px;
-cursor: pointer;
-    }
-    .form-button {
-      width: 100%;
-      height: 100px;
-      padding: 50px;
-    }
-    .fa {
-      position: fixed;
-top: 20px;
-right: 30px;
-color: white;
-cursor: pointer;
-      z-index: 1;
-    }
+@media only screen and (min-width: 350px) and (max-width: 480px) {
+  .sign-up-btn,
+  .login-btn {
+    margin: 10px;
+  }
+  main p {
+    font-size: 1em;
+    height: 60px;
+    padding: 22px;
+    margin-left: 0px;
+    margin-right: 10px;
+    margin-bottom: 60px;
+  }
+  header h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 3em;
+    letter-spacing: 0.23em;
+    color: #ffffff;
+  }
+  .form-background {
+    position: static;
+  }
+  .js-form-hide {
+    top: 50px;
+    right: 0px;
+    left: 0px;
+    position: absolute;
+  }
+  .js-register-form.sign-up {
+    position: fixed;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    background: #414045;
+    border-radius: 0px;
+  }
+  .sign-up {
+    width: auto;
+  }
+  .input-wrapper {
+    margin-top: 30%;
+    padding: 0px;
+    width: 100%;
+  }
+  .submit-btn {
+    position: static;
+    width: 230px;
+    height: 50px;
+    background: #5ee2ff;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .form-button {
+    width: 100%;
+    height: 100px;
+    padding: 50px;
+  }
+  .fa {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1;
+  }
 }

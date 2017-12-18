@@ -82,7 +82,8 @@ nav h1 {
   width: 100%;
   display: block;
 }
-.sandwich-btn, .side-btn.mobile {
+.sandwich-btn,
+.side-btn.mobile {
   display: none;
 }
 .side-nav {
@@ -342,7 +343,7 @@ fieldset {
 .hint {
   font-size: 0.9em;
 }
-.loader{
+.loader {
   margin: 0 0 2em;
   height: 100px;
   width: 20%;
@@ -353,8 +354,8 @@ fieldset {
   vertical-align: top;
 }
 svg path,
-svg rect{
-  fill: #FF6700;
+svg rect {
+  fill: #ff6700;
 }
 rect {
   padding: 20px;
@@ -452,10 +453,9 @@ rect {
   }
 }
 @media (max-width: 700px) {
-  .campaign.active{
+  .campaign.active {
     padding: 10px;
   }
-  
 }
 @media (max-width: 649px) {
   .campaign,
@@ -477,62 +477,42 @@ rect {
     margin-left: 100px;
   }
 }
-@media only screen 
-  and (min-width: 350px)
-  and (max-width: 480px) {
-    .right-side {
-      margin-top: 30%;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-    }
-    .campaigns-wrapper {
-      padding-left: 9%
-    }
-    .campaign.active {
-      width: 100%;
-    }
-    .campaign-players.active {
-      margin: 5%;
-    }
-    .js-create-fields {
-      padding: 0px;
-    }
-    .button-nav {
-      font-family: Montserrat !important;
-      width: 60px !important;
-      height: 30px !important;
-      background: #f09e00 !important;
-      border-radius: 20px !important;
-      position: fixed;
-      top: 95px;
-      left: 20px;
-      padding-top: 5px;
-      z-index: 2;
-    }
-    .title-wrapper {
-      margin-top: 40%;
-    }
-    fieldset {
-      padding: 0px;
-      margin-left: 8%
-    }
+@media only screen and (min-width: 350px) and (max-width: 480px) {
+  .right-side {
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .campaigns-wrapper {
+    padding-left: 9%;
+  }
+  .campaign.active {
+    width: 100%;
+  }
+  .campaign-players.active {
+    margin: 5%;
+  }
+  .js-create-fields {
+    padding: 0px;
+  }
+  .button-nav {
+    font-family: Montserrat !important;
+    width: 60px !important;
+    height: 30px !important;
+    background: #f09e00 !important;
+    border-radius: 20px !important;
+    position: fixed;
+    top: 95px;
+    left: 20px;
+    padding-top: 5px;
+    z-index: 2;
+  }
+  .title-wrapper {
+    margin-top: 40%;
+  }
+  fieldset {
+    padding: 0px;
+    margin-left: 8%;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
