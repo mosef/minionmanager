@@ -196,11 +196,11 @@ fieldset input,
 fieldset {
   border: none;
   color: white;
-  width: 100%;
+  /*! width: 100%; */
 }
 .js-create-fields {
   text-align: left;
-  padding-top: 180px;
+  /*! padding-top: 180px; */
 }
 .js-create-campaign {
   font-size: 0.9em;
@@ -479,9 +479,62 @@ rect {
     margin-left: 100px;
   }
 }
-@media (max-width: 325px) {
-  .right-side {
-    margin-top: 25%;
-    margin-left: 50px;
-  }
+@media only screen 
+  and (min-width: 350px)
+  and (max-width: 480px) {
+    .right-side {
+      margin-top: 30%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+    .campaigns-wrapper {
+      padding-left: 9%
+    }
+    .campaign.active {
+      width: 100%;
+    }
+    .campaign-players.active {
+      margin: 5%;
+    }
+    .js-create-fields {
+      padding: 0px;
+    }
+    .button-nav {
+      font-family: Montserrat !important;
+      width: 60px !important;
+      height: 30px !important;
+      background: #f09e00 !important;
+      border-radius: 20px !important;
+      position: fixed;
+      top: 95px;
+      left: 20px;
+      padding-top: 5px;
+      z-index: 2;
+    }
+    .title-wrapper {
+      margin-top: 40%;
+    }
+    fieldset {
+      padding: 0px;
+      margin-left: 8%
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
