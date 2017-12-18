@@ -346,6 +346,7 @@ function editPlayers(res) {
             </div>
         `);
         $(".confirm").on("click", function() {
+         let updatedTitle = $(".title").val();
           players = $.map(currentPlayers, function(item) {
             const name = $(item).find(".player-name")[0];
             const sheet = $(item).find(".player-sheet")[0];
@@ -364,7 +365,7 @@ function editPlayers(res) {
           });
           const updatedData = {
             _id: id,
-            title: currentTitle,
+            title: updatedTitle,
             players: players
           };
           $.ajax({
@@ -434,5 +435,4 @@ $(function() {
   createSubmit();
   addPlayer();
   loadCampaigns();
-  renderCampaigns();
 });
