@@ -76,25 +76,47 @@ function showCreateFields() {
     $(".campaign-section").hide();
     $(".js-create-fields").show();
     $(".btn-wrapper").toggleClass("active");
+    $(".create-campaign-btns-mobile").show();
     inputClear();
   });
 }
+$(".create-campaign-btns-mobile").hide();
+$( window ).resize(function() {
+  const win = $( window ).width();
+  if (win >= 680) {
+    $(".create-campaign-btns-mobile").remove();
+  } else {
+    if (win <=679) {
+      if($(".create-campaign-btns-mobile").length){
+        if ($(".js-create-fields").is(':visible')){
+          $(".create-campaign-btns-mobile").show();
+        }
+      }else {
+        $(".side-nav").append(`<div class="create-campaign-btns-mobile">
+        <button class="create-btn-mobile add">Add Player</button>
+        <button class="create-btn-mobile submit">Submit Campaign</button>
+        </div>`);
+        $(".create-campaign-btns-mobile").hide();
+      }
+    }
+  }
+});
 function addPlayer() {
   $(".add-player").click(e => {
     e.preventDefault();
     $("#players").append(`<div class="new-player">
         <button class="remove-player"><i class="fa fa-times" aria-hidden="true"></i></button><br />
-        <label>Player Name</label>
-        <input class="player-name" required>
-        <label>Stat Sheet</label>
-        <input class="player-sheet" required>
-        <label>Email</label>
-        <input class="player-email" required>
-        <label>Session</label>
-        <input class="player-session" required>
-        <label>Exp</label>
-        <input class="player-exp" required>
-        <label>Current Loot</label>
+        <label>Player Name</label> <br />
+        <input class="player-name" required><br />
+        <label>Stat Sheet</label><br />
+        <input class="player-sheet" required><br />
+        <label>Email</label><br />
+        <input class="player-email" required><br />
+        <label>Session</label><br />
+        <input class="player-session" required><br />
+        <label>Exp</label><br />
+        <input class="player-exp" required><br />
+        <label>Current Loot</label><br />
         <input class="player-loot">
     </div>`);
   });
@@ -180,6 +202,7 @@ function loadCampaigns(res) {
     e.preventDefault();
     $(".js-create-fields").hide();
     $(".campaign-section").show();
+    $(".create-campaign-btns-mobile").hide();
     $(".btn-wrapper").toggleClass("active");
     $.ajax({
       url: "/api/campaigns",

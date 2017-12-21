@@ -10,6 +10,11 @@ body {
   background-color: #3b3b3d;
   text-align: center;
 }
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 main {
   display: inline-block;
   width: 100%;
@@ -371,7 +376,18 @@ rect {
 }
 
 /*** Media Queries ***/
-@media only screen and (min-with: 701px) and (max-width: 975px) {
+@media only screen and (min-width: 1001px) {
+  .create-campaign-btns-mobile {
+    display: none;
+  }
+}
+@media only screen and (min-width: 680px) and (max-width: 1000px) {
+  .right-side {
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
   .side-nav {
     width: 100%;
     height: 75px;
@@ -380,6 +396,13 @@ rect {
     left: 0px;
     top: 0px;
     z-index: 2;
+  }
+  .sandwich-btn {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    font-size: 1.6em;
   }
   .btn-wrapper {
     margin-top: 0px;
@@ -407,17 +430,60 @@ rect {
       height: 220px;
     }
   }
+  .button-nav {
+    display: block;
+    left: auto;
+    top: 25px;
+    z-index: 2;
+    right: 50px;
+  }
+  .side-btn {
+    width: 100%;
+    margin: 10px;
+    padding: 0px;
+  }
   .side-bottom {
     display: none;
   }
   .side-btn.mobile {
     text-align: center;
     display: block;
-    padding: 20px;
     color: #309ce7;
+    width: 100%;
+    margin: 10px;
+  }
+  .create-campaign-btns-mobile {
+    display: none;
   }
   .greeting {
-    width: 300px;
+    font-size: 0.9em;
+    text-align: left;
+    margin-left: 15px;
+  }
+  #players {
+    width: 100%;
+  }
+  .campaign.active {
+    padding: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+@media only screen and (min-width: 250px) and (max-width: 679px) {
+  .right-side {
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .side-nav {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 15px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
   }
   .sandwich-btn {
     display: block;
@@ -426,94 +492,163 @@ rect {
     right: 0px;
     font-size: 1.6em;
   }
-  .right-side {
-    margin-top: 12%;
-    margin-left: 0px;
-    margin-right: 0px;
-    text-align: center;
+  .btn-wrapper {
+    margin-top: 0px;
+    background-color: white;
+    width: 300px;
+    right: 0px;
+    display: none;
+    position: absolute;
   }
-  .campaign-section {
-    display: inline-block;
+  .btn-wrapper.active {
+    display: block;
+    animation: menudrop 0.6s ease-in-out 0s 1;
+    overflow: hidden;
   }
-  .campaign-section.active,
-  .campaigns-wrapper.active {
-    height: 100%;
-    width: 100%;
-  }
-  .campaigns-wrapper.active {
-    margin: 0px;
-    padding: 0px;
-  }
-  .campaign,
-  .campaign.active {
-    margin: 0px;
-    margin-right: 20px;
-  }
-  .campaign.active {
-    padding: 25px;
-  }
-}
-@media (max-width: 700px) {
-  .campaign.active {
-    padding: 10px;
-  }
-}
-@media (max-width: 649px) {
-  .campaign,
-  .campaign.active {
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-bottom: 20px;
-  }
-}
-@media (max-width: 619px) {
-  .right-side {
-    margin-top: 15%;
-    margin-left: 145px;
-  }
-}
-@media (max-width: 540px) {
-  .right-side {
-    margin-top: 20%;
-    margin-left: 100px;
-  }
-}
-@media only screen and (min-width: 350px) and (max-width: 480px) {
-  .right-side {
-    margin-top: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-  .campaigns-wrapper {
-    padding-left: 9%;
-  }
-  .campaign.active {
-    width: 100%;
-  }
-  .campaign-players.active {
-    margin: 5%;
-  }
-  .js-create-fields {
-    padding: 0px;
+  @keyframes menudrop {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    10% {
+      width: 300px;
+    }
+    100% {
+      width: 300px;
+      height: 220px;
+    }
   }
   .button-nav {
-    font-family: Montserrat !important;
-    width: 60px !important;
-    height: 30px !important;
-    background: #f09e00 !important;
-    border-radius: 20px !important;
-    position: fixed;
-    top: 95px;
-    left: 20px;
-    padding-top: 5px;
-    z-index: 2;
+    display: none;
+  }
+  .side-btn {
+    width: 100%;
+    margin: 10px;
+    padding: 0px;
+  }
+  .side-bottom {
+    display: none;
+  }
+  .side-btn.mobile {
+    text-align: center;
+    display: block;
+    color: #309ce7;
+    width: 100%;
+    margin: 10px;
+  }
+  .create-campaign-btns-mobile {
+    width: 100%;
+    background-color: #f09e00;
+    color: black;
+    height: 60px;
+    padding: 0px;
+    display: flex;
+  }
+  .create-btn-mobile {
+    height: 100%;
+    width: 50%;
+    font-size: 0.85em;
+    border-left: 1px solid black;
+  }
+  .create-btn-mobile:hover {
+    background-color: #edcc8e !important;
+  }
+  .greeting {
+    font-size: 0.9em;
+    text-align: left;
+    margin-left: 15px;
+  }
+  .js-create-fields {
+    text-align: inherit;
+  }
+  .form-background {
+    margin-top: 150px;
+  }
+  .campaign {
+    width: 100%;
+    height: 80px;
+    background-color: #333335;
+    box-shadow: none;
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 15px;
+    transition: all 0.4s ease-out;
+    padding: 10px;
+  }
+  .campaign-players.active {
+    width: 100%;
+  }
+  .player-info.active {
+    width: 100%;
+    height: 500px;
+    border-radius: 0px;
+    margin: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
+  }
+  .campaign-buttons {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    width: auto;
   }
   .title-wrapper {
-    margin-top: 40%;
+    margin-bottom: 25px;
+    margin-left: 14px;
+    margin-bottom: 0px;
+  }
+  #title {
+    padding: 10px;
+    width: 247px;
+  }
+  fieldset,
+  #players,
+  .new-player {
+    margin: 0%;
+    padding: 0%;
   }
   fieldset {
+    position: relative;
+  }
+  #players {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .new-player {
+    width: 275px;
+    height: auto;
+    background-color: #333335;
+    margin: 0px;
+    margin-top: 25px;
     padding: 0px;
-    margin-left: 8%;
+    box-shadow: 0px 10px 2px -10px #f09e00;
+    border-radius: 0px;
+    text-align: center;
+    position: relative;
+  }
+  .new-player label {
+    width: 100%;
+  }
+  .new-player input {
+    width: 90%;
+    padding: 10px;
+    font-size: 1.1em;
+  }
+  .add-player {
+    display: none;
+  }
+  .player-loot {
+    margin-bottom: 25px;
+  }
+  .icon-wrapper {
+    width: 275px;
+    height: auto;
+    display: inline-block;
+    margin: auto;
+    padding-top: 14px;
   }
 }
