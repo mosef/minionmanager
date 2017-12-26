@@ -561,7 +561,7 @@ rect {
   .js-create-fields {
     text-align: inherit;
   }
-  .form-background {
+  .form-background.active {
     margin-top: 150px;
   }
   .campaign {

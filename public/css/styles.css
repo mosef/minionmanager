@@ -49,8 +49,8 @@ button {
 }
 .fa {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 12px;
+  right: 15px;
   color: white;
   cursor: pointer;
 }
@@ -68,40 +68,47 @@ form input {
   width: 75%;
 }
 .submit-btn {
-  width: 300px;
+  width: 250px;
   height: 50px;
   background: #5ee2ff;
   border-radius: 20px;
   cursor: pointer;
+  margin-top: 20px;
 }
 .form-background.active {
-  position: absolute;
+  background-color: rgba(62, 62, 63, 0.53);
+  margin: 0px;
+  padding: 100px;
+  width: 100%;
+  height: 100%;
+  position: fixed;
   top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 100;
-}
-.js-form-hide {
-  top: 130px;
-  right: 40%;
-  left: 40%;
-  position: absolute;
-  text-align: center;
 }
 .sign-up-btn,
 .login-btn {
   font-family: Montserrat;
-  width: 231px;
   height: 50px;
   background: #f09e00;
   border-radius: 20px;
   cursor: pointer;
 }
+#user-name,
+#user-pass {
+  width: 270px;
+}
 .sign-up {
-  height: 558px;
+  height: 80%;
   background: #414045;
   border-radius: 20px;
+  width: 50%;
+  margin: auto;
+  position: relative;
+}
+.sign-up-btn {
+  width: 250px;
+}
+.login-btn {
+  width: 200px;
 }
 article {
   padding: 5%;
@@ -151,27 +158,37 @@ article p {
   float: left;
 }
 /*** Media Queries ***/
-@media only screen and (min-width: 350px) and (max-width: 480px) {
+@media only screen and (min-width: 250px) and (max-width: 1000px) {
   .sign-up-btn,
   .login-btn {
     margin: 10px;
   }
   main p {
     font-size: 1em;
-    height: 60px;
+    height: auto;
     padding: 22px;
     margin-left: 0px;
     margin-right: 10px;
-    margin-bottom: 60px;
+    margin-bottom: auto;
   }
   header h1 {
     font-family: Montserrat;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
-    font-size: 3em;
+    font-size: 2em;
     letter-spacing: 0.23em;
     color: #ffffff;
+  }
+  .logo {
+    width: 90%;
+  }
+  .about {
+    margin-bottom: 100px;
+  }
+  .about-text {
+    width: 100%;
+    text-align: center;
   }
   .form-background {
     position: static;
@@ -180,7 +197,7 @@ article p {
   .solution-text {
     width: 100%;
     text-align: center;
-    height: 100%;
+    height: auto;
   }
  .demopic.sample,
  .demopic.inkeeper {
@@ -222,8 +239,8 @@ article p {
   .form-button {
     width: 100%;
     height: 100px;
-    padding: 50px;
-  }
+    padding: 30px;
+}
   .fa {
     position: fixed;
     top: 20px;
@@ -231,5 +248,34 @@ article p {
     color: white;
     cursor: pointer;
     z-index: 1;
+  }
+}
+@media only screen and (min-width: 475px) {
+  .button-container {
+    padding: 0px 30%;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .sign-up-btn,
+  .login-btn {
+    font-family: Montserrat;
+    height: 50px;
+    background: #f09e00;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 2%;
+  }
+  .about {
+    margin-bottom: 0px;
+  }
+  .sign-up {
+    height: 558px;
+    background: #414045;
+    border-radius: 20px;
+  }
+}
+@media only screen and (min-width: 1234px) {
+  .button-container {
+    padding: 0px 39%;
   }
 }

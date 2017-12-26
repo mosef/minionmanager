@@ -76,6 +76,7 @@ function showCreateFields() {
     $(".campaign-section").hide();
     $(".js-create-fields").show();
     $(".btn-wrapper").toggleClass("active");
+    $(".form-background").toggleClass("active");
     $(".create-campaign-btns-mobile").show();
     inputClear();
   });
@@ -204,6 +205,7 @@ function loadCampaigns(res) {
     $(".campaign-section").show();
     $(".create-campaign-btns-mobile").hide();
     $(".btn-wrapper").toggleClass("active");
+    $(".form-background").removeClass("active");
     $.ajax({
       url: "/api/campaigns",
       headers: {
