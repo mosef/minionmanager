@@ -133,7 +133,7 @@ nav h1 {
   margin-top: 70px;
 }
 .campaign-buttons {
-  width: 180px;
+  width: 230px;
   z-index: 1;
 }
 .campaign {
@@ -171,10 +171,14 @@ nav h1 {
 }
 .delete-campaign:hover {
   color: #fd5b13;
+  font-family: monda;
+  font-size: 1em;
 }
 .edit-campaign:hover,
 .save-campaign:hover {
   color: #309ce7;
+  font-family: monda;
+  font-size: 1em;
 }
 .title {
   position: absolute;
@@ -188,6 +192,11 @@ nav h1 {
   top: 45px;
   z-index: 1;
   color: white;
+}
+.campaign-buttons p {
+  color: white;
+  font-family: monda;
+  font-size: 0.8em;
 }
 /**Form**/
 fieldset input,
@@ -376,99 +385,6 @@ rect {
 }
 
 /*** Media Queries ***/
-@media only screen and (min-width: 1001px) {
-  .create-campaign-btns-mobile {
-    display: none;
-  }
-}
-@media only screen and (min-width: 680px) and (max-width: 1000px) {
-  .right-side {
-    margin-top: 90px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-  .side-nav {
-    width: 100%;
-    height: 75px;
-    margin-bottom: 15px;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    z-index: 2;
-  }
-  .sandwich-btn {
-    display: block;
-    position: absolute;
-    top: 25px;
-    right: 0px;
-    font-size: 1.6em;
-  }
-  .btn-wrapper {
-    margin-top: 0px;
-    background-color: white;
-    width: 300px;
-    right: 0px;
-    display: none;
-    position: absolute;
-  }
-  .btn-wrapper.active {
-    display: block;
-    animation: menudrop 0.6s ease-in-out 0s 1;
-    overflow: hidden;
-  }
-  @keyframes menudrop {
-    0% {
-      width: 0px;
-      height: 0px;
-    }
-    10% {
-      width: 300px;
-    }
-    100% {
-      width: 300px;
-      height: 220px;
-    }
-  }
-  .button-nav {
-    display: block;
-    left: auto;
-    top: 25px;
-    z-index: 2;
-    right: 50px;
-  }
-  .side-btn {
-    width: 100%;
-    margin: 10px;
-    padding: 0px;
-  }
-  .side-bottom {
-    display: none;
-  }
-  .side-btn.mobile {
-    text-align: center;
-    display: block;
-    color: #309ce7;
-    width: 100%;
-    margin: 10px;
-  }
-  .create-campaign-btns-mobile {
-    display: none;
-  }
-  .greeting {
-    font-size: 0.9em;
-    text-align: left;
-    margin-left: 15px;
-  }
-  #players {
-    width: 100%;
-  }
-  .campaign.active {
-    padding: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-}
 @media only screen and (min-width: 250px) and (max-width: 679px) {
   .right-side {
     margin-top: 90px;
@@ -650,5 +566,222 @@ rect {
     display: inline-block;
     margin: auto;
     padding-top: 14px;
+  }
+}
+@media only screen and (min-width: 680px) and (max-width: 929px) {
+  .right-side {
+    margin-top: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .side-nav {
+    width: 100%;
+    height: 75px;
+    margin-bottom: 15px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+  }
+  .sandwich-btn {
+    display: block;
+    position: absolute;
+    top: 25px;
+    right: 0px;
+    font-size: 1.6em;
+  }
+  .btn-wrapper {
+    margin-top: 0px;
+    background-color: white;
+    width: 300px;
+    right: 0px;
+    display: none;
+    position: absolute;
+  }
+  .btn-wrapper.active {
+    display: block;
+    animation: menudrop 0.6s ease-in-out 0s 1;
+    overflow: hidden;
+  }
+  @keyframes menudrop {
+    0% {
+      width: 0px;
+      height: 0px;
+    }
+    10% {
+      width: 300px;
+    }
+    100% {
+      width: 300px;
+      height: 220px;
+    }
+  }
+  .button-nav {
+    font-family: Montserrat !important;
+    width: 100% !important;
+    height: 30px !important;
+    background: #f09e00 !important;
+    border-radius: 0px !important;
+    position: fixed;
+    left: 0px;
+    padding-top: 5px;
+    top: auto;
+    bottom: 0 !important;
+    text-align: center;
+  }
+  .side-btn {
+    width: 100%;
+    margin: 10px;
+    padding: 0px;
+  }
+  .side-bottom {
+    display: none;
+  }
+  .side-btn.mobile {
+    text-align: center;
+    display: block;
+    color: #309ce7;
+    width: 100%;
+    margin: 10px;
+  }
+  .create-campaign-btns-mobile {
+    display: none;
+  }
+  .greeting {
+    font-size: 0.9em;
+    text-align: left;
+    margin-left: 15px;
+  }
+  #players {
+    width: 100%;
+  }
+  .campaign.active {
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+  .campaign-players.active {
+    display: flex;
+    margin-top: 2%;
+  }
+  .player-info.active {
+    display: inline-table;
+  }
+  .title {
+    position: absolute;
+    left: 362px;
+    top: 120px;
+    z-index: 1;
+    text-align: center;
+  }
+  input {
+    font-size: 1em;
+    padding: 5px 2px;
+    text-align: center;
+    letter-spacing: 0.095em;
+  }
+}
+@media only screen and (min-width: 930px) and (max-width: 1000px) {
+  .create-campaign-btns-mobile {
+    display: none;
+  }
+  .side-nav {
+    background-color: #414045;
+    width: 300px;
+    height: 100%;
+    display: inline-block;
+    font-size: 1.2em;
+    color: white;
+    position: fixed;
+    left: 0px;
+  }
+  .button-nav {
+    font-family: Montserrat !important;
+    width: 78% !important;
+    height: 30px !important;
+    background: #f09e00 !important;
+    border-radius: 0px !important;
+    position: fixed;
+    left: 300px;
+    padding-top: 5px;
+    top: auto;
+    bottom: 0 !important;
+    text-align: center;
+  }
+  .campaign.active {
+    margin: 0px;
+    padding: 0px;
+  }
+  .player-info.active {
+    margin: 8px;
+  }
+}
+@media only screen and (min-width: 1001px) {
+  .create-campaign-btns-mobile {
+    display: none;
+  }
+  .side-nav {
+    background-color: #414045;
+    width: 300px;
+    height: 100%;
+    display: inline-block;
+    font-size: 1.2em;
+    color: white;
+    position: fixed;
+    left: 0px;
+  }
+  .button-nav {
+    font-family: Montserrat !important;
+    width: 78% !important;
+    height: 30px !important;
+    background: #f09e00 !important;
+    border-radius: 0px !important;
+    position: fixed;
+    left: 300px;
+    padding-top: 5px;
+    top: auto;
+    bottom: 0 !important;
+    text-align: center;
+  }
+  .campaign.active {
+    margin: 0px;
+    padding: 0px;
+  }
+  .campaign-buttons {
+    width: 230px;
+    z-index: 1;
+    position: absolute;
+    top: 20px;
+    left: 10px;
+  }
+  .player-info.active {
+    margin: 20px;
+  }
+  .campaign-players.active {
+    margin-top: 10%;
+  }
+  .title {
+    position: absolute !important;
+    left: 323px !important;
+    top: 120px !important;
+    z-index: 1;
+  }
+  .c-title.active {
+    z-index: 1;
+    text-align: left;
+    position: absolute;
+    top: 65px;
+    left: 25px;
+  }
+  .campaigns-wrapper.active {
+    height: 100%;
+    margin-top: 4%;
+  }
+  .back-button {
+    position: absolute;
+    left: 312px;
+    top: 17px;
+    z-index: 1;
+    color: white;
   }
 }

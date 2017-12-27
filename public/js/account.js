@@ -10,6 +10,7 @@ function checkUser() {
       success: ()=> {
         greeting();
         $(".loader-background").remove();
+        successLoad();
       },
       error: () => {
         location.href = "/login.html";
@@ -64,7 +65,12 @@ function renderLoader() {
   </div>`);
 }
 $(".sandwich-btn").on("click", function(e) {
-  $(".btn-wrapper").toggleClass("active");
+  e.preventDefault();
+  $(".btn-wrapper").toggleClass("active")
+  .mouseleave(function() {
+    $(this).fadeOut();
+  });
+  $(".btn-wrapper").css("display", "block");
 });
 function hideForm() {
   $(".js-create-fields").hide();
@@ -72,6 +78,7 @@ function hideForm() {
 function showCreateFields() {
   $(".new-campaign").click(e => {
     e.preventDefault();
+    navCheck();
     $(".campaigns-wrapper").empty();
     $(".campaign-section").hide();
     $(".js-create-fields").show();
@@ -82,28 +89,36 @@ function showCreateFields() {
   });
 }
 $(".create-campaign-btns-mobile").hide();
-$( window ).resize(function() {
+function checkWindow() {
+  $( window ).resize(function() {
+    const win = $( window ).width();
+    if (win >= 680) {
+      $(".create-campaign-btns-mobile").remove();
+    } else {
+      if (win <= 679) {
+        if($(".create-campaign-btns-mobile").length){
+          if ($(".js-create-fields").is(':visible')){
+            $(".create-campaign-btns-mobile").show();
+          }
+        }else {
+          $(".create-campaign-btns-mobile").hide();
+          $(".side-nav").append(`<div class="create-campaign-btns-mobile">
+          <button class="create-btn-mobile add">Add Player</button>
+          <button class="create-btn-mobile submit">Submit Campaign</button>
+          </div>`);
+        }
+      }
+    }
+  });
+}
+function navCheck() {
   const win = $( window ).width();
   if (win >= 680) {
     $(".create-campaign-btns-mobile").remove();
-  } else {
-    if (win <=679) {
-      if($(".create-campaign-btns-mobile").length){
-        if ($(".js-create-fields").is(':visible')){
-          $(".create-campaign-btns-mobile").show();
-        }
-      }else {
-        $(".side-nav").append(`<div class="create-campaign-btns-mobile">
-        <button class="create-btn-mobile add">Add Player</button>
-        <button class="create-btn-mobile submit">Submit Campaign</button>
-        </div>`);
-        $(".create-campaign-btns-mobile").hide();
-      }
-    }
   }
-});
+}
 function addPlayer() {
-  $(".add-player").click(e => {
+  $(".add-player, .create-btn-mobile.add").click(e => {
     e.preventDefault();
     $("#players").append(`<div class="new-player">
         <button class="remove-player"><i class="fa fa-times" aria-hidden="true"></i></button><br />
@@ -163,9 +178,49 @@ function createSubmit() {
         inputClear();
         successDialogue();
       },
-      error: err => {}
+      error: err => {console.log(err)}
     });
   });
+}
+function mobileSubmit() {
+  $(".create-btn-mobile.submit").on("click", function(e) {
+    e.preventDefault();
+    players = $.map($(".new-player"), function(item) {
+      const name = $(item).find(".player-name")[0];
+      const sheet = $(item).find(".player-sheet")[0];
+      const email = $(item).find(".player-email")[0];
+      const session = $(item).find(".player-session")[0];
+      const exp = $(item).find(".player-exp")[0];
+      const loot = $(item).find(".player-loot")[0];
+      return {
+        playerName: $(name).val(),
+        statSheet: $(sheet).val(),
+        email: $(email).val(),
+        session: $(session).val(),
+        expGained: $(exp).val(),
+        currentLoot: $(loot).val()
+      };
+    });
+    const dataToSend = {
+      title: $("#title").val(),
+      players: players
+    };
+    $.ajax({
+      url: "/api/campaigns",
+      headers: {
+        Authorization: token
+      },
+      method: "POST",
+      contentType: "application/json",
+      dataType: "json",
+      data: JSON.stringify(dataToSend),
+      success: data => {
+        inputClear();
+        successDialogue();
+      },
+      error: err => {}
+    });
+  })
 }
 function inputClear() {
   $("#players").empty().append(`
@@ -198,9 +253,34 @@ function successDialogue() {
     $(".campaign-btn").trigger("click");
   });
 }
+function successLoad() {
+  navCheck();
+  $(".js-create-fields").hide();
+  $(".campaign-section").show();
+  $(".create-campaign-btns-mobile").hide();
+  $(".form-background").removeClass("active");
+  $.ajax({
+    url: "/api/campaigns",
+    headers: {
+      Authorization: token
+    },
+    method: "GET",
+    contentType: "application/json",
+    dataType: "json",
+    data: {},
+    success: data => {
+      let res = data;
+      deleteCampaign(res);
+      editPlayers(res);
+      renderCampaigns(res);
+    },
+    error: err => {}
+  });
+}
 function loadCampaigns(res) {
   $(".campaign-btn").click(e => {
     e.preventDefault();
+    navCheck();
     $(".js-create-fields").hide();
     $(".campaign-section").show();
     $(".create-campaign-btns-mobile").hide();
@@ -229,61 +309,61 @@ function loadCampaigns(res) {
 function renderCampaigns(res) {
   const campaignsHTML = res.map(
     item => `
-        <section class="campaign" id="${item._id}" role="region">
-            <nav class="campaign-buttons">
-                <button class="save-campaign">
-                    <i class="fa fa-floppy-o" aria-hidden="true">
-                </i></button>
-                <button class="edit-campaign">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true">
-                </i></button>
-                <button class="delete-campaign">
-                    <i class="fa fa-trash" aria-hidden="true">
-                </i></button>
-            </nav>
-            <h3 class="c-title"><i class="fa fa-chevron-left" aria-hidden="true"></i>${
-              item.title
-            }</h3>
-            <div class="campaign-players">
-                ${item.players
-                  .map(
-                    (player, index) => `
-                <div class="player-info">
-                    <h4>Player Name</h4>
-                        <label class="p-label">${player.playerName}</label>
-                            <input class="player-name js-hidden" value="${
-                              player.playerName
-                            }">
-                    <h4>Stat Sheet</h4>
-                        <label class="p-label">${player.statSheet}</label>
-                            <input class="player-sheet js-hidden" value="${
-                              player.statSheet
-                            }">
-                    <h4>Email</h4>
-                        <label class="p-label">${player.email}</label>
-                            <input class="player-email js-hidden" value="${
-                              player.email
-                            }">
-                    <h4>Session</h4>
-                        <label class="p-label">${player.session}</label>
-                            <input class="player-session js-hidden" value="${
-                              player.session
-                            }">
-                    <h4>Exp</h4>
-                        <label class="p-label">${player.expGained}</label>
-                            <input class="player-exp js-hidden" value="${
-                              player.expGained
-                            }">
-                    <h4>Current Loot</h4>
-                        <label class="p-label">${player.currentLoot}</label>
-                            <input class="player-loot js-hidden" value="${
-                              player.currentLoot
-                            }">
-                </div>`
-                  )
-                  .join("")}
-            </div>
-        </section>
+    <section class="campaign" id="${item._id}" role="region">
+      <nav class="campaign-buttons">
+          <button class="save-campaign">
+              <i class="fa fa-floppy-o" aria-hidden="true">
+          </i><p>Save</p></button>
+          <button class="edit-campaign">
+              <i class="fa fa-pencil-square-o" aria-hidden="true">
+          </i><p>Edit</p></button>
+          <button class="delete-campaign">
+              <i class="fa fa-trash" aria-hidden="true">
+          </i><p>Delete Campaign</p></button>
+      </nav>
+      <h3 class="c-title"><i class="fa fa-chevron-left" aria-hidden="true"></i>${
+        item.title
+      }</h3>
+      <div class="campaign-players">
+        ${item.players
+          .map(
+            (player, index) => `
+        <div class="player-info">
+          <h4>Player Name</h4>
+              <label class="p-label">${player.playerName}</label>
+              <input class="player-name js-hidden" value="${
+                player.playerName
+              }">
+          <h4>Stat Sheet</h4>
+              <label class="p-label">${player.statSheet}</label>
+              <input class="player-sheet js-hidden" value="${
+                player.statSheet
+              }">
+          <h4>Email</h4>
+              <label class="p-label">${player.email}</label>
+              <input class="player-email js-hidden" value="${
+                player.email
+              }">
+          <h4>Session</h4>
+              <label class="p-label">${player.session}</label>
+              <input class="player-session js-hidden" value="${
+                player.session
+              }">
+          <h4>Exp</h4>
+              <label class="p-label">${player.expGained}</label>
+              <input class="player-exp js-hidden" value="${
+                player.expGained
+              }">
+          <h4>Current Loot</h4>
+              <label class="p-label">${player.currentLoot}</label>
+              <input class="player-loot js-hidden" value="${
+                player.currentLoot
+              }">
+          </div>`
+            )
+            .join("")}
+      </div>
+    </section>
     `
   );
   $(".campaigns-wrapper").html(campaignsHTML);
@@ -318,19 +398,10 @@ $(".campaigns-wrapper").on("click", ".c-title", function(e) {
   $(".campaigns-wrapper").toggleClass("active");
   $(this).toggleClass("active");
   $(".fa-chevron-left").toggle();
+  $(".save-campaign").hide();
 });
-$(".campaigns-wrapper").on("click", ".back-button", function(e) {
-  e.preventDefault();
-  $(".right-side").removeClass("active");
-  $(".campaign-section").removeClass("active");
-  $(".campaigns-wrapper").removeClass("active");
-  $(".campaign").removeClass("active");
-  $(".player-info").removeClass("active");
-  $(".back-button").hide();
-  $(".campaign-buttons").hide();
-  $(".title").remove();
-  $(".c-title").show();
-  $(".fa-chevron-left").toggle();
+$(".campaigns-wrapper").on("click", ".c-title", function(e) {
+  $("campaign-players").removeClass("active");
 });
 function editPlayers(res) {
   $(".campaigns-wrapper").on("click", ".edit-campaign", function(e) {
@@ -415,7 +486,22 @@ function editPlayers(res) {
       });
   });
 }
-
+$(".campaigns-wrapper").on("click", ".back-button", function(e) {
+  e.preventDefault();
+  $(".right-side").removeClass("active");
+  $(".campaign-section").removeClass("active");
+  $(".campaigns-wrapper").removeClass("active");
+  $(".campaign").removeClass("active");
+  $(".player-info").removeClass("active");
+  $(".back-button").hide();
+  $(".campaign-buttons").hide();
+  $(".title").remove();
+  $(".c-title").show().removeClass("active");
+  $(".fa-chevron-left").toggle();
+  $(".js-hidden").toggle();
+  $(".p-label").toggle();
+  $(".campaign-players").toggleClass("active");
+});
 function deleteCampaign(res) {
   $(".campaigns-wrapper").on("click", ".delete-campaign", function() {
     let campId = $(this)
@@ -453,11 +539,14 @@ function deleteCampaign(res) {
 $(function() {
   renderLoader();
   checkUser();
+  checkWindow();
+  navCheck();
   logout();
   logoutMobil();
   hideForm();
   showCreateFields();
   createSubmit();
+  mobileSubmit();
   addPlayer();
   loadCampaigns();
 });
