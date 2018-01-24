@@ -133,7 +133,7 @@ nav h1 {
   margin-top: 70px;
 }
 .campaign-buttons {
-  width: 230px;
+  width: 380px;
   z-index: 1;
 }
 .campaign {
@@ -750,7 +750,9 @@ rect {
     margin: 0px;
     padding: 0px;
   }
-
+  .campaign-players.active {
+    margin-top: 50px;
+  }
   .player-info.active {
     margin: 20px;
   }

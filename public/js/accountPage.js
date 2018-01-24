@@ -180,8 +180,7 @@ function createSubmit() {
       success: data => {
         inputClear();
         successDialogue();
-      },
-      error: err => {console.log(err)}
+      }
     });
   });
 }
@@ -220,8 +219,7 @@ function mobileSubmit() {
       success: data => {
         inputClear();
         successDialogue();
-      },
-      error: err => {}
+      }
     });
   })
 }
@@ -276,8 +274,7 @@ function successLoad() {
       deleteCampaign(res);
       editPlayers(res);
       renderCampaigns(res);
-    },
-    error: err => {}
+    }
   });
 }
 function loadCampaigns(res) {
@@ -303,8 +300,7 @@ function loadCampaigns(res) {
         deleteCampaign(res);
         editPlayers(res);
         renderCampaigns(res);
-      },
-      error: err => {}
+      }
     });
   });
 }
@@ -326,12 +322,18 @@ function renderCampaigns(res) {
         <button class="delete-campaign">
             <i class="fa fa-trash" aria-hidden="true">
         </i><p>Delete Campaign</p></button>
+        <button class="person-add">
+            <i class="fa fa-plus-square" aria-hidden="true">
+        </i><p>Add Player</p></button>
       </nav>
       <div class="campaign-players">
         ${item.players
           .map(
             (player, index) => `
         <div class="player-info">
+        <button class="remove-player-btn">
+            <i class="fa fa-trash" aria-hidden="true">
+        </i><p>Remove Player</p></button>
           <h4>Player Name</h4>
               <label class="p-label">${player.playerName}</label>
               <input class="player-name js-hidden" value="${
@@ -376,7 +378,9 @@ function renderCampaigns(res) {
         Back
     </button>`);
   $(".back-button").hide();
+  $(".person-add").hide();
   $(".campaign-players").hide();
+  $(".remove-player-btn").hide();
   $(".campaign-buttons").hide();
   $(".fa-chevron-left").hide();
   $(".js-hidden").hide();
@@ -400,15 +404,19 @@ $(".campaigns-wrapper").on("click", ".c-title", function(e) {
     .toggleClass("active")
     .children()
     .toggleClass("active");
-  $(".right-side").toggleClass("active");
-  $(".campaign-section").toggleClass("active");
-  $(".campaigns-wrapper").toggleClass("active");
+  $(".right-side").addClass("active");
+  $(".campaign-section").addClass("active");
+  $(".campaigns-wrapper").addClass("active");
   $(this).toggleClass("active");
   $(".fa-chevron-left").toggle();
   $(".save-campaign").hide();
+  $(".person-add").hide();
 });
-$(".campaigns-wrapper").on("click", ".c-title", function(e) {
+$(".campaigns-wrapper").on("click", ".c-title.active", function(e) {
   $("campaign-players").removeClass("active");
+  $(".right-side").removeClass("active");
+  $(".campaign-section").removeClass("active");
+  $(".campaigns-wrapper").removeClass("active");
 });
 function editPlayers(res) {
   $(".campaigns-wrapper").on("click", ".edit-campaign", function(e) {
@@ -422,11 +430,55 @@ function editPlayers(res) {
       .text();
     let currentPlayers = $(this)
       .parent()
-      .siblings(".campaign-players")
+      .siblings(".campaign-players.active")
       .children();
     $(".js-hidden").toggle();
     $(".p-label").toggle();
     $(".back-button").toggle();
+    $(".remove-player-btn").toggle();
+    $(".person-add").toggle();
+    $(this)
+      .parent()
+      .children(".person-add")
+      .on("click", function() {
+        $(this)
+        .parent()
+        .siblings(".campaign-players.active")
+        .append(`
+        <div class="player-info">
+        <button class="remove-player-btn">
+            <i class="fa fa-trash" aria-hidden="true">
+        </i><p>Remove Player</p></button>
+          <h4>Player Name</h4>
+              <label class="p-label"></label>
+              <input class="player-name js-hidden" value="">
+          <h4>Stat Sheet</h4>
+              <label class="p-label"></label>
+              <input class="player-sheet js-hidden" value="">
+          <h4>Email</h4>
+              <label class="p-label"></label>
+              <input class="player-email js-hidden" value="">
+          <h4>Session</h4>
+              <label class="p-label"></label>
+              <input class="player-session js-hidden" value="">
+          <h4>Exp</h4>
+              <label class="p-label"></label>
+              <input class="player-exp js-hidden" value="">
+          <h4>Current Loot</h4>
+              <label class="p-label"></label>
+              <input class="player-loot js-hidden" value="">
+          </div>`)
+      });
+    $(this)
+      .parent()
+      .children(".person-add")
+      .on("click", function() {
+        $(this)
+        .parent()
+        .siblings(".campaign-players.active")
+        .children(".player-info")
+        .addClass("active")
+      });
     $(this)
       .prev()
       .toggle();
@@ -441,6 +493,10 @@ function editPlayers(res) {
     $(this)
       .prev()
       .on("click", function() {
+        let updatedPlayers = $(this)
+        .parent()
+        .siblings(".campaign-players.active")
+        .children();
         $(".campaigns-wrapper").append(`
             <div class ="save-dialogue">
                 <p>Save Changes?</p>
@@ -450,7 +506,7 @@ function editPlayers(res) {
         `);
         $(".confirm").on("click", function() {
          let updatedTitle = $(".title").val();
-          players = $.map(currentPlayers, function(item) {
+          players = $.map(updatedPlayers, function(item) {
             const name = $(item).find(".player-name")[0];
             const sheet = $(item).find(".player-sheet")[0];
             const email = $(item).find(".player-email")[0];
@@ -483,8 +539,7 @@ function editPlayers(res) {
             success: data => {
               $(".save-dialogue").remove();
               location.href = "/account.html";
-            },
-            error: err => {}
+            }
           });
         });
         $(".cancel").on("click", function() {
@@ -507,8 +562,15 @@ $(".campaigns-wrapper").on("click", ".back-button", function(e) {
   $(".fa-chevron-left").toggle();
   $(".js-hidden").toggle();
   $(".p-label").toggle();
+  $(".remove-player-btn").toggle();
   $(".campaign-players").toggleClass("active");
 });
+
+$(".campaigns-wrapper").on("click", ".remove-player-btn", function(e) {
+  e.preventDefault();
+  $(this).parent().remove();
+});
+
 function deleteCampaign(res) {
   $(".campaigns-wrapper").on("click", ".delete-campaign", function() {
     let campId = $(this)
