@@ -1,72 +1,116 @@
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Minon Manager</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="./css/normalize.css">
-        <link rel="stylesheet" href="./css/styles.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
-        <script src="https://use.fontawesome.com/a5ce80834d.js"></script>
-        <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div class="wrapper">
+
+<head>
+    <meta charset="utf-8">
+    <title>Minon Manager</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/grid.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monda" rel="stylesheet">
+    <script src="https://use.fontawesome.com/a5ce80834d.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
         <header role="banner">
             <h1>MINION MANAGER</h1>
         </header>
         <main role="main">
-            <img src="./img/Group 3.png" class="logo">
+            <img src="./img/logo.svg" class="logo">
             <p>Minion Manager is a tool for Dungeon Masters to keep track of multiple players and campaigns.</p>
             <p>Demo Login: Username: demouser Password: demo12345</p>
             <div class="button-container">
                 <button type="submit" class="sign-up-btn">SIGN UP</button>
                 <button class="login-btn">LOGIN</button>
             </div>
-            <article>
-                <div class ="about">
-                    <div class="about-text">
-                        <h2>The Problem</h2>
-                        <p>
-                            Most player systems like roll20 or the usual pen and paper method of playing D&D leave openings for players to
-                            manipulate information between sessions. Keeping track of multiple groups and their respective sets of information
-                            can be time consuming and often prone to errors if there's too much to handle. In most cases, as a campaign manager
-                            your biggest issue lies in combing through player submissions to find their information which can extend the amount
-                            of time spent in game looking information up rather than managing the actual session.
-                        </p>
-                    </div>
-                    <img src="./img/inkeeper.jpg" class="demopic inkeeper">
-                </div>
-                <div class="solution">
-                    <div class="solution-text">
-                        <h2>The Solution</h2>
-                        <p>
-                        Minion Manager was developed to provide campaign managers a visual way to organize players into groups.
-                        Each player block contains quick references to what matters most to managers.
-                        Things like a player's name, email address, the number of sessions they've attended, the experience they were last awarded,
-                        and their current loot are all available at a glance.
-                        </p>
-                    </div>
-                    <img src="./img/demo-sample.png" class="demopic sample">
-                </div>
-            </article>
             <div class="form-background">
                 <section role="region" class="js-form-hide">
                     <form method="post" class="js-register-form sign-up">
                         <i class="fa fa-times" aria-hidden="true"></i>
                         <div class="input-wrapper">
-                            <label for="POST-register">Username</label><br>
-                                <input id="user-name" type="text" name="registration"><br>
-                            <label for"POST-register">Password</label><br>
-                                <input id="user-pass" type="password" name="registration"><br>
+                            <label for="POST-register">Username</label>
+                            <br>
+                            <input id="user-name" type="text" name="registration">
+                            <br>
+                            <label for "POST-register">Password</label>
+                            <br>
+                            <input id="user-pass" type="password" name="registration">
+                            <br>
                             <div class="form-button"></div>
                         </div>
                     </form>
                 </section>
             </div>
         </main>
-        </div>
-    </body>
-    <script src= "./js/app.js"></script>
+        <article class="nested">
+            <div class="sidebar-1">
+                <h2>The Problem</h2>
+                <p>
+                    Most player systems like roll20 or the usual pen and paper method of playing D&D leave openings for players to manipulate
+                    information between sessions. Keeping track of multiple groups and their respective sets of information
+                    can be time consuming and often prone to errors if there's too much to handle. In most cases, as a campaign
+                    manager your biggest issue lies in combing through player submissions to find their information which
+                    can extend the amount of time spent in game looking information up rather than managing the actual session.
+                </p>
+            </div>
+            <div class="content-1">
+                <img src="./img/inkeeper.jpg" class="demopic inkeeper">
+            </div>
+            <div class="sidebar-2">
+                <h2>The Solution</h2>
+                <p>
+                    Minion Manager was developed to provide campaign managers a visual way to organize players into groups. Each player block
+                    contains quick references to what matters most to managers. Things like a player's name, email address,
+                    the number of sessions they've attended, the experience they were last awarded, and their current loot
+                    are all available at a glance.
+                </p>
+            </div>
+            <div class="content-2">
+                <img src="./img/demo-sample.png" class="demopic sample">
+            </div>
+            <div class="sidebar-3">
+                <h2>Manage campaigns visually</h2>
+                <p>
+                    Minion Manager was developed to provide campaign managers a visual way to organize players into groups. Each player block
+                    contains quick references to what matters most to managers. Things like a player's name, email address,
+                    the number of sessions they've attended, the experience they were last awarded, and their current loot
+                    are all available at a glance.
+                </p>
+            </div>
+            <div class="content-3">
+                <img src="./img/demo-sample.png" class="demopic sample">
+            </div>
+            <div class="sidebar-4">
+                <h2>Flexible player blocks</h2>
+                <p>
+                    Minion Manager was developed to provide campaign managers a visual way to organize players into groups. Each player block
+                    contains quick references to what matters most to managers. Things like a player's name, email address,
+                    the number of sessions they've attended, the experience they were last awarded, and their current loot
+                    are all available at a glance.
+                </p>
+            </div>
+            <div class="content-4">
+                <img src="./img/demo-sample.png" class="demopic sample">
+            </div>
+            <div class="sidebar-5">
+                <h2>Update campaigns on the fly</h2>
+                <p>
+                    Minion Manager was developed to provide campaign managers a visual way to organize players into groups. Each player block
+                    contains quick references to what matters most to managers. Things like a player's name, email address,
+                    the number of sessions they've attended, the experience they were last awarded, and their current loot
+                    are all available at a glance.
+                </p>
+            </div>
+            <div class="content-5">
+                <img src="./img/demo-sample.png" class="demopic sample">
+            </div>
+        </article>
+    </div>
+</body>
+<script src="./js/app.js"></script>
+
 </html>

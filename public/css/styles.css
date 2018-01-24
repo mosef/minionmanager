@@ -7,12 +7,10 @@ html {
   box-sizing: inherit;
 }
 body {
-  background: url("../img/1024.png") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #414045;
   text-align: center;
+  font-family: Montserrat;
+  color: white;
 }
 header h1 {
   font-family: Montserrat;
@@ -24,16 +22,12 @@ header h1 {
   color: #ffffff;
 }
 .logo {
-  width: 50%;
+  width: 30%;
 }
 main p {
   font-family: Montserrat;
   font-size: 1.2em;
   color: white;
-}
-.wrapper {
-  display: inline-block;
-  position: relative;
 }
 input[type="button" ],
 input[type="submit" ],
@@ -86,9 +80,9 @@ form input {
 }
 .sign-up-btn,
 .login-btn {
-  font-family: Montserrat;
+  font-family: Monda;
   height: 50px;
-  background: #f09e00;
+  background: #5EE2FF;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -110,53 +104,14 @@ form input {
 .login-btn {
   width: 200px;
 }
-article {
-  padding: 5%;
-  padding-top: 0;
-}
-article h2{
-  font-family: Montserrat;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 1.6em;
-  letter-spacing: 0.23em;
-  color: #ffffff;
-}
-article p {
-  margin-bottom: 10px;
-}
-.about {
-  margin-bottom: 300px;
-  height: 550px;
-  padding-top: 50px;
-}
-.about-text,
-.solution-text {
-  width: 50%;
-  display: inline-block;
-}
-.about-text {
-  text-align: left;
-}
-.solution-text {
-  text-align: right;
-}
-.solution {
-  height: 550px;
-}
+
 .demopic {
-  width: 50%;
+  width: 100%;
   box-shadow: 
     0 4px 8px 0 rgba(0,0,0,0.2),
     0 6px 20px 0 rgba(0,0,0,0.19)
 }
-.demopic.inkeeper {
-  float: right;
-}
-.demopic.sample {
-  float: left;
-}
+
 /*** Media Queries ***/
 @media only screen and (min-width: 250px) and (max-width: 1000px) {
   .sign-up-btn,
@@ -181,7 +136,7 @@ article p {
     color: #ffffff;
   }
   .logo {
-    width: 90%;
+    width: 30%;
   }
   .about {
     margin-bottom: 100px;
@@ -258,9 +213,9 @@ article p {
 @media only screen and (min-width: 1001px) {
   .sign-up-btn,
   .login-btn {
-    font-family: Montserrat;
+    font-family: Monda;
     height: 50px;
-    background: #f09e00;
+    background: #5EE2FF;
     border-radius: 20px;
     cursor: pointer;
     margin: 2%;
