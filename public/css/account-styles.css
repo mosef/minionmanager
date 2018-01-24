@@ -135,6 +135,7 @@ nav h1 {
 .campaign-buttons {
   width: 380px;
   z-index: 1;
+  text-align: left;
 }
 .campaign {
   width: 300px;
@@ -759,7 +760,7 @@ rect {
   .title {
     position: absolute !important;
     left: 323px !important;
-    top: 120px !important;
+    top: 155px !important;
     z-index: 1;
   }
   .c-title.active {

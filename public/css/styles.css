@@ -230,8 +230,3 @@ form input {
     border-radius: 20px;
   }
 }
-@media only screen and (min-width: 1234px) {
-  .button-container {
-    padding: 0px 39%;
-  }
-}
