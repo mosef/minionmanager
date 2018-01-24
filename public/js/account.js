@@ -35,6 +35,9 @@ function logoutMobil() {
     location.href = "/";
   });
 }
+jQuery.fn.findNext = function(selector) {
+  return this.eq(0).nextAll(selector).eq(0);
+}
 function renderLoader() {
     $(".js-content").append(`
     <div class ="loader-background">
@@ -379,9 +382,7 @@ function renderCampaigns(res) {
   $(".js-hidden").hide();
   $(".save-campaign").hide();
 }
-jQuery.fn.findNext = function(selector) {
-  return this.eq(0).nextAll(selector).eq(0);
-}
+
 $(".campaigns-wrapper").on("click", ".c-title", function(e) {
   e.preventDefault();
   //TOGGLES CAMPAIGN BUTTONS LIKE EDIT AND DELETE
