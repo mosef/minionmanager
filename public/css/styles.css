@@ -77,6 +77,7 @@ form input {
   height: 100%;
   position: fixed;
   top: 0;
+  left: 0;
 }
 .sign-up-btn,
 .login-btn {

@@ -162,6 +162,9 @@ nav h1 {
 .campaign h4 {
   color: rgb(104, 104, 108);
 }
+.create-btn {
+  width: 100%;
+}
 .c-title.active {
   z-index: 1;
   text-align: left;
