@@ -785,3 +785,6 @@ rect {
     color: white;
   }
 }
+@media only screen and (min-width: 1350px) and (min-height: 1000) {
+
+}

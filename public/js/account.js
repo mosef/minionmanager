@@ -310,20 +310,20 @@ function renderCampaigns(res) {
   const campaignsHTML = res.map(
     item => `
     <section class="campaign" id="${item._id}" role="region">
-      <nav class="campaign-buttons">
-          <button class="save-campaign">
-              <i class="fa fa-floppy-o" aria-hidden="true">
-          </i><p>Save</p></button>
-          <button class="edit-campaign">
-              <i class="fa fa-pencil-square-o" aria-hidden="true">
-          </i><p>Edit</p></button>
-          <button class="delete-campaign">
-              <i class="fa fa-trash" aria-hidden="true">
-          </i><p>Delete Campaign</p></button>
-      </nav>
       <h3 class="c-title"><i class="fa fa-chevron-left" aria-hidden="true"></i>${
         item.title
       }</h3>
+      <nav class="campaign-buttons">
+        <button class="save-campaign">
+            <i class="fa fa-floppy-o" aria-hidden="true">
+        </i><p>Save</p></button>
+        <button class="edit-campaign">
+            <i class="fa fa-pencil-square-o" aria-hidden="true">
+        </i><p>Edit</p></button>
+        <button class="delete-campaign">
+            <i class="fa fa-trash" aria-hidden="true">
+        </i><p>Delete Campaign</p></button>
+      </nav>
       <div class="campaign-players">
         ${item.players
           .map(
@@ -379,16 +379,22 @@ function renderCampaigns(res) {
   $(".js-hidden").hide();
   $(".save-campaign").hide();
 }
+jQuery.fn.findNext = function(selector) {
+  return this.eq(0).nextAll(selector).eq(0);
+}
 $(".campaigns-wrapper").on("click", ".c-title", function(e) {
   e.preventDefault();
+  //TOGGLES CAMPAIGN BUTTONS LIKE EDIT AND DELETE
   $(this)
-    .prev()
+    .findNext(".campaign-buttons")
     .toggle();
+    //SETS CAMPAIGN TO ACTIVE
   $(this)
     .parent()
     .toggleClass("active");
+    //SHOWS CAMPAIGN PLAYERS
   $(this)
-    .next()
+    .findNext(".campaign-players")
     .show()
     .toggleClass("active")
     .children()
