@@ -747,18 +747,9 @@ rect {
     margin: 0px;
     padding: 0px;
   }
-  .campaign-buttons {
-    width: 230px;
-    z-index: 1;
-    position: absolute;
-    top: 20px;
-    left: 10px;
-  }
+
   .player-info.active {
     margin: 20px;
-  }
-  .campaign-players.active {
-    margin-top: 10%;
   }
   .title {
     position: absolute !important;
@@ -769,9 +760,6 @@ rect {
   .c-title.active {
     z-index: 1;
     text-align: left;
-    position: absolute;
-    top: 65px;
-    left: 25px;
   }
   .campaigns-wrapper.active {
     height: 100%;
@@ -784,7 +772,4 @@ rect {
     z-index: 1;
     color: white;
   }
-}
-@media only screen and (min-width: 1350px) and (min-height: 1000) {
-
 }
