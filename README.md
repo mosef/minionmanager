@@ -1,6 +1,7 @@
 <h1>Minion Manager</h1>
 <p><a href="https://sheltered-coast-97878.herokuapp.com/">Minion Manager</a> is a responsive full-stack app made for Table-Top coordinators to keep track of player information between
 sessions</p>
+<img src="./public/img/minion-cap.png" alt="" />
 
 ## Getting started
 ### Installing
